@@ -1,6 +1,4 @@
-/*--------------------
-Reset & body
---------------------*/
+
 *,
 *::before,
 *::after {
@@ -31,9 +29,6 @@ body::after {
   opacity: 0.9;
 }
 
-/*--------------------
-Landing
---------------------*/
 .landing {
   position: relative;
   z-index: 2;
@@ -61,9 +56,7 @@ Landing
   display: none;
 }
 
-/*--------------------
-Copy
---------------------*/
+
 .copy {
   position: relative;
   z-index: 2;
@@ -106,9 +99,6 @@ Copy
   font-weight: 600;
 }
 
-/*--------------------
-Overlay
---------------------*/
 .base.overlay {
   z-index: 2;
   -webkit-clip-path: polygon(375px 0, 710px 0, 710px 530px, 469px 530px);
