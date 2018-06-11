@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'citizen',
     'lawyer',
+    'imagekit'
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
