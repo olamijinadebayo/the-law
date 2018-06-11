@@ -1,2 +1,7 @@
 from django import forms 
-from django
+from .import models 
+
+class NewPostArticle(forms.ModelForm):
+    model = Articles 
+    exclude = ['time','username']
+    
