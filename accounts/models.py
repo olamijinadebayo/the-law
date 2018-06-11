@@ -33,9 +33,13 @@ class LawyerProfile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if instance.is_citizen:
         CitizenProfile.objects.get_or_create(user=instance)
+    else:
+        LawyerProfile.objects.get_or_create(user=instance)
 
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     if instance.is_citizen:
         instance.citizen_profile.save()
+    else:
+        LawyerProfile.objects.get_or_create(user=instance)
