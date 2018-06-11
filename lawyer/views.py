@@ -4,4 +4,5 @@ from django.shortcuts import render
 def lawyerdashboard(request):
     return render(request, 'law/lawyerdashboard.html')
 
-    
+def lawyerprofile(request):
+    return render(request,'law/profile.html')
