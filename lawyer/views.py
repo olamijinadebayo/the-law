@@ -6,3 +6,6 @@ def lawyerdashboard(request):
 
 def lawyerprofile(request):
     return render(request,'law/profile.html')
+
+def lawyercases(request):
+    return render(request, 'law/viewcase.html')
