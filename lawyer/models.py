@@ -8,7 +8,7 @@ from imagekit.processors import ResizeToFill
 
 
 class Articles(models.Model):
-    image = ProcessedImageField(upload_to = 'posts/', processors=[ResizeToFill(700,700)], format = 'JPEG', options ={'quality':100} blank=True)
+    image = ProcessedImageField(upload_to = 'posts/', processors=[ResizeToFill(700,700)], format = 'JPEG', options ={'quality':100}, blank=True)
     name = models.CharField(max_length=30)
     post = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
