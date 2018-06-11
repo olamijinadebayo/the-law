@@ -12,7 +12,7 @@ body {
 
 body {
   background: #100F1D;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Bree Serif', serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.4;
@@ -145,4 +145,7 @@ body::after {
 .base.overlay .cta {
   background: #fff;
   color: #0A2452;
+}
+h1 {
+  font-family: 'Bungee', cursive;
 }
