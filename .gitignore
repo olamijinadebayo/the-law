@@ -2,6 +2,6 @@ virtual/
 .gitignore
 __pycache__
 *.pyc
-.env
+
 migrations/
 db.sqlite3
