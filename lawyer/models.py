@@ -17,4 +17,4 @@ class Articles(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=30)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
-    ``
+    
