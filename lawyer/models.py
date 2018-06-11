@@ -9,4 +9,5 @@ class Articles(models.Model):
     name = models.CharField(max_length=30)
     post = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     
