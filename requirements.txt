@@ -1,6 +1,7 @@
 dj-database-url==0.5.0
 Django==1.11.5
 django-appconf==1.0.2
+django-bootstrap4==0.0.6
 django-imagekit==4.0.2
 gunicorn==19.8.1
 pilkit==2.0

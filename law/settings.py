@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lawyer.apps.LawyerConfig',
+    'bootstrap4',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
