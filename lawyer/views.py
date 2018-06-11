@@ -1,5 +1,8 @@
-from django.shortcuts import render
-from lawyer.forms import NewPostForm
+from django.shortcuts import render,redirect
+from lawyer.forms import NewPostForm, ProfileForm
+import datetime as dt 
+from .models import Articles
+
 # Create your views here.
 def lawyerdashboard(request):
     return render(request, 'law/lawyerdashboard.html')
@@ -32,3 +35,16 @@ def newarticle(request):
             form = NewPostForm()
 
     return render(request,'new_post.html',{'form':form})
+
+def change_lawyerProfile(request,user_id):
+    profile = request.user.profile
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save(commit=False)
+            profile.save()
+            return redirect('profile', user_id)
+
+    else:
+        form = ProfileForm(instance=request.user.profile)
+    return render(request,'lawyer_editprofile.html',{"form":form})
