@@ -6,6 +6,7 @@ from django.dispatch import receiver
 
 class User(AbstractUser):
     is_citizen = models.BooleanField(default=False)
+    is_lawyer = models.BooleanField(default=False)
 
 
 class CitizenProfile(models.Model):
@@ -15,6 +16,17 @@ class CitizenProfile(models.Model):
     email = models.EmailField(max_length=50, null=True)
     first_name = models.CharField(max_length=30, null=True)
     last_name = models.CharField(max_length=30, null=True)
+
+
+class LawyerProfile(models.Model):
+    avatar = models.ImageField(upload_to='logo/', blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                null=True, related_name='lawyer_profile')
+    email = models.EmailField(max_length=50, null=True)
+    first_name = models.CharField(max_length=30, null=True)
+    last_name = models.CharField(max_length=30, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    articles = models.ForeignKey(Articles, on_delete=models.CASCADE)
 
 
 @receiver(post_save, sender=User)
