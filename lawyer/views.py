@@ -17,8 +17,8 @@ def lawyerarticles(request):
     return render(request,'law/lawyerarticle.html')
 
 def newarticle(request):
-    current_user = request.user
-    profile = request.user.profile
+    # current_user = request.user
+    # profile = request.user.profile
 
     if request.method == 'POST':
         form = NewPostForm(request.POST,request.FILES)
