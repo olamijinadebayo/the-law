@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'lawyer',
     'imagekit',
     'bootstrap4',
+    'ussd',
 ]
 
 MIDDLEWARE = [
