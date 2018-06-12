@@ -25,8 +25,8 @@ def newarticle(request):
 
         if form.is_valid():
             post = form.save(commit=False)
-            post.user_name = current_user
-            post.profile = profile
+            # post.user_name = current_user
+            # post.profile = profile
 
             post.save()
             return redirect('lawyerdashboard')
