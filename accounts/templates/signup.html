@@ -15,7 +15,7 @@
         </div>
         <div class="panel-body">
           <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+              {% csrf_token %}
               {{form.as_p }}
             <button type="submit" name="button">Sign up</button>
           </form>

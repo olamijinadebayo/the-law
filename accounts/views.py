@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.contrib.auth import authenticate, login
 from .forms import CitizenSignUpForm, LawyerSignUpForm
 
 # Create your views here.
@@ -23,13 +23,13 @@ def citizensignup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-        return redirect('home')
+        return redirect('lawyer:signup')
     else:
         form = CitizenSignUpForm()
     return render(request, 'signup.html', {'form': form})
 
 
-def lawyersignup(request):
+def lawyer_signup(request):
     if request.method == 'POST':
         form = LawyerSignUpForm(request.POST, request.FILES)
         if form.is_valid():
@@ -42,7 +42,7 @@ def lawyersignup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-        return redirect('home')
+        return redirect('lawyer:lawyerdashboard')
     else:
         form = LawyerSignUpForm()
     return render(request, 'lawyer_signup.html', {'form': form})

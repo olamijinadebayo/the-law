@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-AUTH_USER_MODEL = 'accounts.User'
 import dj_database_url
 from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -136,3 +135,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+AUTH_USER_MODEL = 'accounts.User'

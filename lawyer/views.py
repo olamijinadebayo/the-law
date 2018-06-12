@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect
 from lawyer.forms import NewPostForm, ProfileForm
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+
 import datetime as dt 
 from .models import Articles
 
@@ -48,3 +51,9 @@ def change_lawyerProfile(request,user_id):
     else:
         form = ProfileForm(instance=request.user.profile)
     return render(request,'lawyer_editprofile.html',{"form":form})
+
+
+def logout_view(request):
+    
+    logout(request)
+    return redirect('accounts:lawyer')

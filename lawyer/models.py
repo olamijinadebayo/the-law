@@ -12,15 +12,15 @@ class Articles(models.Model):
     name = models.CharField(max_length=30)
     post = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user_name = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
 class Lawyer(models.Model):
-    user_name = models.OneToOneField(User, on_delete=models.CASCADE)
+    # user_name = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
     email = models.EmailField(max_length=100)
