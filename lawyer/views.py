@@ -31,10 +31,10 @@ def newarticle(request):
             post.save()
             return redirect('lawyerdashboard')
 
-        else:
-            form = NewPostForm()
+    else:
+        form = NewPostForm()
 
-    return render(request,'new_post.html',{'form':form})
+    return render(request,'law/new_post.html',{"form":form})
 
 def change_lawyerProfile(request,user_id):
     profile = request.user.profile
