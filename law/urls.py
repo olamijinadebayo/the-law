@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.landingpage, name= 'landing'),
     url(r'', include('lawyer.urls')),
+    url(r'^accounts/', include('accounts.urls')),
 ]
