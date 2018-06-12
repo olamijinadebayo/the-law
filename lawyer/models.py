@@ -18,3 +18,13 @@ class Category(models.Model):
     name = models.CharField(max_length=30)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     
+
+class Lawyer(models.Model):
+    user_name = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=60)
+    last_name = models.CharField(max_length=60)
+    email = models.EmailField(max_length=100)
+    bio = models.CharField(max_length=60, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    profile_avatar = ProcessedImageField(upload_to = 'avatars/', processors=[ResizeToFill(100,100)], format = 'JPEG', options ={'quality':60})
+    location = models.CharField(max_length=30,blank=True)
