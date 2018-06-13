@@ -1,10 +1,10 @@
 from django.conf.urls import url, include
 from .import views 
 
-app_name='lawyer'
+app_name='lawyers'
 
 urlpatterns = [
-    url(r'^signup/$', views.signup, name='signup')
+    url(r'^signup/$', views.signup, name='signup'),
     url(r'lawyer/$', views.lawyerdashboard, name= 'lawyerdashboard'),
     url(r'lawyer/profile/', views.lawyerprofile, name = 'lawyerprofile'),
     url(r'lawyer/cases/', views.lawyercases, name = 'lawyercases'),
