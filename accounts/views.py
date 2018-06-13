@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 from .forms import CitizenSignUpForm, LawyerSignUpForm
 from citizen.models import Citizen
+from lawyer.models import Lawyer
+from django.contrib.auth import login, authenticate
+from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
 # Create your views here.
 
 
@@ -10,7 +14,7 @@ def home(request):
 
 def citizensignup(request):
     if request.method == 'POST':
-        form = CitizenSignUpForm(request.POST, request.FILES)
+        form = CitizenSignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.is_citizen = True
@@ -23,20 +27,20 @@ def citizensignup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
         return redirect('home')
-    else
+    else:
         form = CitizenSignUpForm()
     return render(request, 'signup.html', {'form': form})
 
 
 def lawyersignup(request):
     if request.method == 'POST':
-        form = LawyerSignUpForm(request.POST, request.FILES)
+        form = LawyerSignUpForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.is_lawyer = True
-            user.save()
+            user = form.save()
+
             user.refresh_from_db()
-            user.location = form.cleaned_data.get('location')
+            user.is_lawyer = True
+            user.lawyer.location = form.cleaned_data.get('location')
             user.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')

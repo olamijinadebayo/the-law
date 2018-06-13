@@ -1,5 +1,8 @@
 from django.db import models
 from django.conf import settings
+from django.core.urlresolvers import reverse
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Lawyer(models.Model):
@@ -14,8 +17,11 @@ class Lawyer(models.Model):
     last_name = models.CharField(max_length=30, null=True)
     location = models.CharField(max_length=30, null=True)
 
-    @receiver(post_save, sender=User)
-    def update_user_profile(sender, instance, created, **kwargs):
+    # def __str__(self):
+    #     return self.user
+
+    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+    def update_lawyer(sender, instance, created, **kwargs):
         if created:
             Lawyer.objects.create(user=instance)
         instance.lawyer.save()
