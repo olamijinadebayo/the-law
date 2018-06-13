@@ -19,6 +19,8 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    url(r'^lawyer/', include('lawyer.urls')),
     url(r'^$', views.landingpage, name= 'landing'),
     url(r'', include('lawyer.urls')),
     url(r'^accounts/', include('accounts.urls')),
