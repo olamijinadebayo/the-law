@@ -4,7 +4,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
 import datetime as dt 
-from .models import Articles
+from .models import Articles, Lawyer
 
 # Create your views here.
 def lawyerdashboard(request):
