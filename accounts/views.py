@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
 from django.contrib.auth import authenticate, login
-=======
 from django.contrib.auth.forms import UserCreationForm
->>>>>>> 15b5f196be2a8a1f05285581b6b55f5b0416b216
 from .forms import CitizenSignUpForm, LawyerSignUpForm
 from citizen.models import Citizen
 from lawyer.models import Lawyer
