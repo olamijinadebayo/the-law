@@ -7,6 +7,8 @@ import datetime as dt
 from .models import Articles
 
 # Create your views here.
+def signup(request):
+    return render(request, 'signup.html')
 def lawyerdashboard(request):
     return render(request, 'law/lawyerdashboard.html')
 

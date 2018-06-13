@@ -4,6 +4,7 @@ import datetime as dt
 from django.contrib.auth.models import User
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
+from accounts.models import User
 # Create your models here.
 
 
@@ -20,7 +21,7 @@ class Category(models.Model):
     
 
 class Lawyer(models.Model):
-    # user_name = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_name = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
     email = models.EmailField(max_length=100)
