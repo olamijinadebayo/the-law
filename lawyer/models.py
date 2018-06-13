@@ -4,7 +4,7 @@ import datetime as dt
 from django.contrib.auth.models import User
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
-from accounts.models import User
+from django.conf import settings
 # Create your models here.
 
 
@@ -13,15 +13,15 @@ class Articles(models.Model):
     name = models.CharField(max_length=30)
     post = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
-    # user_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_name = models.ForeignKey(settings.AUTH_USER_MODEL)
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
-    # user_name = models.ForeignKey(User, on_delete=models.CASCADE)
+user_name = models.ForeignKey(settings.AUTH_USER_MODEL)
     
 
 class Lawyer(models.Model):
-    user_name = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_name = models.OneToOneField(settings.AUTH_USER_MODEL)
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
     email = models.EmailField(max_length=100)
@@ -29,3 +29,4 @@ class Lawyer(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     profile_avatar = ProcessedImageField(upload_to = 'avatars/', processors=[ResizeToFill(100,100)], format = 'JPEG', options ={'quality':60})
     location = models.CharField(max_length=30,blank=True)
+
