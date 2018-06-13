@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-
 from .forms import CitizenSignUpForm, LawyerSignUpForm
-
+from citizen.models import Citizen
 # Create your views here.
 
 
@@ -24,7 +23,7 @@ def citizensignup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
         return redirect('home')
-    else:
+    else
         form = CitizenSignUpForm()
     return render(request, 'signup.html', {'form': form})
 
