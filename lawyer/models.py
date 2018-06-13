@@ -20,8 +20,8 @@ class Lawyer(models.Model):
     # def __str__(self):
     #     return self.user
 
-    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-    def update_lawyer(sender, instance, created, **kwargs):
-        if created:
-            Lawyer.objects.create(user=instance)
-        instance.lawyer.save()
+    # @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+    # def update_lawyer(sender, instance, created, **kwargs):
+    #     if created:
+    #         Lawyer.objects.create(user=instance)
+    #     instance.lawyer.save()
