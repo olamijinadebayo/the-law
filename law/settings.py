@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+AUTH_USER_MODEL = 'accounts.User'
 import dj_database_url
 from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -41,6 +42,12 @@ INSTALLED_APPS = [
     'pinax.messages',
     'lawyer',
     'django_private_chat',
+    'accounts',
+    'citizen',
+    'lawyer',
+    'imagekit',
+    'bootstrap4',
+
 ]
 
 MIDDLEWARE = [
@@ -80,8 +87,11 @@ WSGI_APPLICATION = 'law.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -124,9 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 MEDIA_URL = '/media/'

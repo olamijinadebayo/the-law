@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.landingpage, name= 'landing'),
     url(r'^maps/', views.maps, name = 'maps'),
-    url(r'^messages/', include("pinax.messages.urls", namespace="pinax_messages")),
+    url(r'^accounts/', include('accounts.urls')),
+
 ]
