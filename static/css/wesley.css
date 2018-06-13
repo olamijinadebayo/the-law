@@ -1,151 +1,45 @@
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  min-height: 100%;
-}
-
-body {
-  background: #100F1D;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.4;
-}
-body::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+body{
+  background: linear-gradient(rgba(17.6%, 20%, 25.9%, 0.55), rgba(17.6%, 20%, 40.9%, 0.55)),
+                rgba(17.6%, 20%, 25.9%, 0.55) url("/static/images/bg.jpeg");
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-  z-index: 1;
-  background: linear-gradient(42deg, #070c18, #1f141c);
-  opacity: 0.9;
+  background-size: cover;
+  background-attachment: fixed;
+
+
 }
 
-.landing {
-  position: relative;
-  z-index: 2;
-  width: 710px;
-  height: 520px;
-  margin: 25px auto;
-  box-shadow: 0 3px 30px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-.landing .logo svg {
-  fill: #1E1C45;
-}
-.landing .base {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
+.container {
   height: 100%;
-  padding: 38px;
-  color: #082352;
-  background: #fff;
-}
-.landing .image {
-  display: none;
-}
 
 
-.copy {
-  position: relative;
-  z-index: 2;
-}
-.copy .title {
-  font-size: 52px;
-  font-weight: 800;
-  text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: 30px;
-  margin-left: -3px;
-  background-image: linear-gradient(45deg, #191A42, #B1499C);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.copy .title small {
-  font-size: 18px;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-top: 50px;
-  line-height: 1;
-  display: block;
-  text-indent: 3px;
-}
-.copy .text {
-  color: #282652;
-  width: 400px;
-  font-size: 90%;
-}
-.copy .cta {
-  cursor: pointer;
-  margin-top: 40px;
-  background: linear-gradient(25deg, #2f2d56, #6e355b);
-  color: #fff;
-  text-transform: uppercase;
-  display: inline-block;
-  border-radius: 30px;
-  text-decoration: none;
-  padding: 10px 30px;
-  font-weight: 600;
 }
 
-.base.overlay {
-  z-index: 2;
-  -webkit-clip-path: polygon(375px 0, 710px 0, 710px 530px, 469px 530px);
-          clip-path: polygon(375px 0, 710px 0, 710px 530px, 469px 530px);
-  color: #fff;
-  background: linear-gradient(45deg, #082352, #6f2d52);
-  transition: all .6s ease-in-out;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-}
-.base.overlay.over {
-  -webkit-clip-path: polygon(-1750px 0, 710px 0, 710px 630px, 0 710px);
-          clip-path: polygon(-1750px 0, 710px 0, 710px 630px, 0 710px);
-}
-.base.overlay .logo svg {
-  fill: #fff;
-}
-.base.overlay .image {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  z-index: 1;
-}
-.base.overlay .image::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  background: linear-gradient(42deg, #082352, #6f2d52);
-  opacity: 0.8;
-}
-.base.overlay .title {
-  background-image: linear-gradient(0, #fff, #fff);
-}
-.base.overlay .text {
-  color: #fff;
-}
-.base.overlay .cta {
-  background: #fff;
-  color: #0A2452;
-}
 h1 {
-  font-family: 'Bungee', cursive;
+  font-family: 'Bungee';
+  font-style: normal;
+  color: white;
+  text-align: center;
+  margin-top: 200px;
+  font-size: 60px;
 }
+
+h3 {
+  font-family: 'Bree serif';
+  color: white;
+  text-align: center;
+  font-size: 40px;
+}
+
+p {
+  color: white;
+  padding: 30px;
+  font-size: 24px;
+
+}
+ ul {
+   list-style: none;
+   font-size: 25px;
+   color: white;
+ }

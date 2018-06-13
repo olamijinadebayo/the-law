@@ -1,4 +1,5 @@
 {%load static%}
+{% load pinax_messages_tags %}
 <html>
 <head>
     <meta charset="UTF-8">
@@ -12,30 +13,46 @@
     <link rel="stylesheet" href="{%static 'css/wesley.css'%}">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+
 </head>
     <body>
-    <div class="landing">
-        <div class="base">
-            <div class="image">
-                <img src="http://www.supah.it/dribbble/frame-dailyui-003.jpg" />
-            </div>
-            <div class="copy">
-            
-                <div class="title">
-                    <small>There's no substitute for power.</small> Except more power.</div>
-                <div class="text">What CrossFit has taught me, and what I think everyone
-                    <br /> can apply to their own fitness, is the idea that the body can
-                    <br />always do more. The average CrossFit WOD is deliberately
-                    <br /> designed to fatigue your body to the point where you don't
-                    <br /> think you can go on. The lesson in the WODs is that when
-                    <br /> your body is totally exhausted, you must look for a different
-                    <br /> energysource. And guess what?
-                    <br /> Your body will do it.</div>
-                <a class="cta" target="_blank">play video</a>
-                <h1>THis is the law</h1>
-            </div>
+        <a href="{% url 'pinax_messages:inbox' %}"><i class="fa fa-envelope"></i> {% trans "Message Inbox" %}</a>
+        <a href="{% url 'pinax_messages:thread_detail' thread.pk %}"><i class="fa fa-envelope"></i> {% trans "View Message Thread" %}</a>
+        <a href="{% url "pinax_messages:message_user_create" user_id=object.user.id %}" class="btn btn-default">Message this user</a>
+        <div class="container">
+            <h1>This Is The Law</h1>
+            <h3>A very confused app</h3>
+            <button class="btn btn-outline-info">View More</button>
         </div>
-    </div>
-    <script src="{% static 'js/wesley.js' %}"></script>    
+        <div class="about">
+            <h1>About Us</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque maximus tincidunt lobortis. Phasellus posuere ut tellus eu pretium. Maecenas dignissim ex vitae enim placerat rutrum. Nulla ultrices magna sed est vestibulum tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Vivamus eros nisl, pellentesque nec interdum eu, efficitur eu tortor. Curabitur nec ante ac sem dignissim auctor et ac felis. Morbi finibus sem tristique lobortis rutrum. Phasellus nec nunc euismod, sollicitudin magna vel, laoreet ex.</p>
+            <section class="col-md-4">
+                <img src="/static/images/sc.jpeg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque maximus tincidunt lobortis. Phasellus posuere ut tellus eu pretium.</p>
+
+            </section>
+            <section class="col-md-4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque maximus tincidunt lobortis. Phasellus posuere ut tellus eu pretium.</p>
+
+            </section>
+            <section class="col-md-4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque maximus tincidunt lobortis. Phasellus posuere ut tellus eu pretium.</p>
+
+            </section>
+
+        </div>
+
+        <div class="services">
+            <h1>What We Do</h1>
+            <ul>
+                <li>Property Law</li>
+                <li>Criminal Law</li>
+                <li>Corporate Law</li>
+                <li>Labour Law</li>
+            </ul>
+
+        </div>
+    <script src="{% static 'js/wesley.js' %}"></script>
 </body>
 </html>
