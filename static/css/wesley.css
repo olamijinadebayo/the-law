@@ -21,8 +21,7 @@ h1 {
   font-family: 'Bungee', cursive;
 }
 
-button{
-  border: 2px solid;
-  padding: 10px;
-  border-radius: 50%;
+div#carouselExampleIndicators{
+  height: 500px;
+  width: 1000px;
 }
