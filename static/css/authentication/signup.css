@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+/* body{
+    /* background-color: blue; */
+} */
+.no-space{
+    padding: 0 !important;
+    height: 80vh;
+}
+.left{
+    background-image: url(../../images/back.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    padding-top:100px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
+}
+.right{
+    /* background-color: red; */
+    padding: 80px;
+    
+}
+.form-group input[type="email"],input[type="password"],input[type="text"]{
+    border: none !important;
+    border-radius: 0% !important;
+    border-bottom: 1px solid black !important;
+    outline-style: none !important; 
+    outline-color: red !important;
+}
+.form-group label{
+    color: blue;
+    font-size: 12px;
+    font-weight: bold;
+}
+input:focus{
+    background-color: yellow !important;
+    color:black;
+    font-weight: bold;
+}
