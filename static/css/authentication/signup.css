@@ -11,6 +11,7 @@ body{
     background-repeat: no-repeat; 
     padding-top:100px;
     color: white;
+    font-weight: bold;
 }
 .right{
     /* background-color: red; */
@@ -25,7 +26,7 @@ body{
     outline-color: red !important;
 }
 .form-group label{
-    color: green;
+    color: blue;
     font-size: 12px;
     font-weight: bold;
 }

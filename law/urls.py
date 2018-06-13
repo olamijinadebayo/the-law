@@ -20,6 +20,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^lawyer/', include('lawyer.urls')),
     url(r'^$', views.landingpage, name= 'landing'),
+    url(r'^lawyer/', include('lawyer.urls')),
+    url(r'^citizen/', include('citizen.urls')),
 ]
