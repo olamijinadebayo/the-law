@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-# from . import views
+from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,6 +23,5 @@ urlpatterns = [
     url(r'^$', views.landingpage, name= 'landing'),
     url(r'^lawyer/', include('lawyer.urls')),
     url(r'^citizen/', include('citizen.urls')),
-    url(r'', include('lawyer.urls')),
     url(r'^accounts/', include('accounts.urls')),
 ]
