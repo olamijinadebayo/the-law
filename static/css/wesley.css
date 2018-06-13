@@ -91,12 +91,6 @@ ul, ol {
 }
 
 
-
-.img-rounded {
-  border-radius: 50%;
-  max-width: 150px;
-}
-
 #toggle {
   display: block;
   width: 28px;
@@ -161,7 +155,7 @@ ul, ol {
 body > header {
   color: #fff;
   padding: 20px;
-  background: #29D9C2;
+  background: #5B80C1;
   text-align: center;
   position: relative;
 }
@@ -182,7 +176,7 @@ body > header h1:after {
   text-align: center;
   display: block;
   border: 1px solid;
-  background: #29D9C2;
+  background: #5B80C1;
 }
 body > header h1, body > header h1 > a {
   color: #fff;
@@ -202,15 +196,7 @@ body > header span.cursive {
 body > header span.cursive:hover {
   transform: rotate(367deg);
 }
-body > header nav[role="main"] ul,
-body > header nav[role="main"] ul li,
-body > header nav[role="main"] li a {
-  display: block;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  text-transform: uppercase;
-}
+
 body > header nav[role="main"] li a {
   padding: 5px 10px;
   color: #2F2933;
@@ -283,7 +269,7 @@ body > header nav[role="main"] li a:hover {
 
 footer {
   text-align: center;
-  background: #2F2933;
+  background: #1E233F;
   color: #fff;
   margin-bottom: 0;
   padding: 20px 0;
