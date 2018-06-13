@@ -32,9 +32,10 @@ def lawyersignup(request):
     if request.method == 'POST':
         form = LawyerSignUpForm(request.POST, request.FILES)
         if form.is_valid():
-            user = form.save()
-            user.refresh_from_db()
+            user = form.save(commit=False)
             user.is_lawyer = True
+            user.save()
+            user.refresh_from_db()
             user.location = form.cleaned_data.get('location')
             user.save()
             username = form.cleaned_data.get('username')
