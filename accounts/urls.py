@@ -6,6 +6,6 @@ app_name='accounts'
 
 urlpatterns = [
     url(r'^home/$', views.home, name='home'),
-    url(r'^citizensignup/$', views.citizensignup, name='citizen'),
-    url(r'^lawyersignup/$', views.lawyer_signup, name='lawyer'),
+    url(r'^citizen/signup/$', views.citizensignup, name='citizen'),
+    url(r'^lawyer/signup/$', views.lawyer_signup, name='lawyer'),
 ]
