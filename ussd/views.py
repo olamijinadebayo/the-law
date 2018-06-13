@@ -12,12 +12,34 @@ def index(request):
         phone_number = request.POST.get('phoneNumber')
         text = request.POST.get('text')
 
-        response = ""
         if text == "":
-            response = "CON What would you want to check \n"
-            response += "1. My Phone Number "
+            menu_text = "CON Welcome to KPLC prepaid, please choose an option:\n"
+            menu_text += "1. Check my Account information\n"
+            menu_text += "2. Top-Up my balance\n"
+      
+        elif text =="1":
+            menu_text = "CON Choose the account information that you want to view \n"
+            menu_text += "1. My Token balance\n"
+            menu_text += "2. My Account number \n"
 
-        elif text == "1":
-            response = "END My Phone number is {0} Tolu".format(phone_number)
+        elif text =="2":
+            menu_text = "CON Please enter the amount"
+                
+        elif text =="1*1":
+            token = random.randrange(16,38)
+            menu_text = "END Your Token balance is: "+ str(token)
+            client.publish("amaina/token",token)
+            send_sms("Your remaining tokens are: ", token)
+            time.sleep(2)
+            
+        elif text =="1*2":
+            menu_text = "END Your account number is ACOO10SWO2101."
+        
+        elif text =="2*"+userResponse:
+            client.publish("amaina/amount",userResponse)
+            client.subscribe("amaina/amount")
+            send_sms("Thank you the amount paid in is: ", userResponse)
+            time.sleep(2)
+            menu_text = "END Thank-you"
 
-        return HttpResponse(response)
+    return HttpResponse(response)
