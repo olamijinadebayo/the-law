@@ -90,14 +90,6 @@ ul, ol {
   margin-bottom: 20px;
 }
 
-hr {
-  height: 0;
-  border: none;
-  background: none;
-  color: none;
-  border-bottom: 1px solid #e1dde4;
-  margin: 20px 0;
-}
 
 
 .img-rounded {
