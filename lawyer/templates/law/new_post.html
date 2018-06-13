@@ -1,0 +1,14 @@
+{%extends 'law/base.html'%} {%load bootstrap4 %} {%load staticfiles %} {%block content%}
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-6 col-lg-3 col-sm-9 col-xs-12 ">
+
+            <form action="{% url 'newarticle' %}" method="post" enctype="multipart/form-data">
+                {%csrf_token%} {%bootstrap_form form %}
+                <input type="submit" class="btn btn-primary" value="post">
+
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}
