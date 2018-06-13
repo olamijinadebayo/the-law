@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="HandheldFriendly" content="true">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -13,6 +15,34 @@
     <link rel="stylesheet" href="{%static 'css/wesley.css'%}">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <!-- Start of Async Drift Code -->
+    <script>
+        "use strict";
+
+        !function () {
+            var t = window.driftt = window.drift = window.driftt || [];
+            if (!t.init) {
+                if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+                t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
+                    t.factory = function (e) {
+                        return function () {
+                            var n = Array.prototype.slice.call(arguments);
+                            return n.unshift(e), t.push(n), t;
+                        };
+                    }, t.methods.forEach(function (e) {
+                        t[e] = t.factory(e);
+                    }), t.load = function (t) {
+                        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+                        var i = document.getElementsByTagName("script")[0];
+                        i.parentNode.insertBefore(o, i);
+                    };
+            }
+        }();
+        drift.SNIPPET_VERSION = '0.3.1';
+        drift.load('3z78wr3dfbxc');
+    </script>
+    <!-- End of Async Drift Code -->
 </head>
     <body>
     <div class="container-fluid">
@@ -160,42 +190,17 @@
                             The website is strongly found on the principles of transparency and right to knowledge.
                         </p>
                         <p>
-                            <a href="#" class="button button-pill button-wesley">View our Social Ranking on Klout
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         </p>
                     </div>
                     <div class="col-1-3">
                         <p>
-                            <img src="https://vgy.me/psJlJy.jpg" alt="" />
-                        </p>
-                    </div>
-                </div>
-            
-                <div class="grid grid-pad">
-                    <div class="col-1-3">
-                        <p>
-                            <img src="https://vgy.me/fGdT2D.jpg" alt="" />
-                        </p>
-                    </div>
-                    <div class="col-2-3">
-                        <h1>Dribbble your way into successland!</h1>
-                        <p>For years we had the pleasure of gaining hundreds of repetitive comments from competing designers and devlopers
-                            on any work we posted on one of the five accounts we own. From "Wow, nice work!" to "That's amazing", it
-                            was all there.</p>
-            
-                        <p>We have a proven track record. The online bulletin board FamousMaximumEffort.com named us #1 expertise center
-                            in 2001!</p>
-                        <p>
-                            <a href="#" class="button button-pill button-wesley">Get Dribbbl' with us
-                                <i class="fa fa-dribbble"></i>
-                            </a>
+
                         </p>
                     </div>
                 </div>
             
             </div>
-            <!-- end container -->
+            
             
            
                         
