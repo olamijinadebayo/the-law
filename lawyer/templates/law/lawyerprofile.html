@@ -3,29 +3,47 @@
 <div class="container" style="padding-top:90px;">
     <div class="row">
         <div class="col-md-6">
-            hhuh
-
-
+ Things enter below here I say
+            {%for profile in profile %}
             <div class="profile">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            hello lawyer profile today
+                            {%if profile.profile_avatar%}
+                            <img src="" alt="" class="img img-responsive" style="border-radius: 50% "> {% endif %}
+                            <br>
+                            <p></p>
+                            <h2>Username: </h2>
+                            Bio:  {%endfor%}
                         </div>
                     </div>
                 </div>
             </div>
-
-
+            {%for article in article %}
+            <br>
+            <br>
+            <br>
+            <u>
+                <h2>Articles</h2>
+            </u>
+            <hr>
             <div class="container">
                 <div class="row">
                     <div class="col-5">
-                        Blah blah blah
+                        <b>Name:</b> 
+                        <img src="" alt="" class="img img-responsive">
+                        <p>
+                            <b>Article: </b> </p>
+                        <a href="#" class="btn-primary">
+                            <p>Delete</p>
+                        </a>
+                        <a href="#" class="btn-primary">
+                            <p>Update</p>
                         </a>
                     </div>
                 </div>
             </div>
-
+            {%endfor%}
         </div>
     </div>
 </div>
