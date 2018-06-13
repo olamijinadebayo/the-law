@@ -274,6 +274,7 @@ footer {
   margin-bottom: 0;
   padding: 20px 0;
 }
+
 footer p {
   margin: 0;
   padding: 0;
@@ -301,7 +302,7 @@ footer p {
     text-align: center;
     display: block;
     border: 1px solid;
-    background: #29D9C2;
+    background: #5B80C1;
   }
   body > header span.cursive {
     display: inline-block;
@@ -348,7 +349,7 @@ footer p {
 }
 
 .claim {
-  background-color: #00605B;
+  background-color: #1E233F;
 }
 
 .scream {
