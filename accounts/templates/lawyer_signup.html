@@ -1,6 +1,6 @@
 {% extends './base.html'%}
 {% load bootstrap4%}
-{% load static%}
+{% load static %}
 {% block content %}
 <div class="container">
   <div class="row justify-content-center">
@@ -12,7 +12,8 @@
         </div>
         <div class="col-md-8 right">
           <form method="post" enctype="multipart/form-data">
-            {% csrf_token %} {% bootstrap_form form layout='inline'%}
+            {% csrf_token %}
+             {% bootstrap_form form layout='inline'%}
             <button type="submit" name="button" class="btn btn-primary">Sign up</button>
           </form>
         </div>

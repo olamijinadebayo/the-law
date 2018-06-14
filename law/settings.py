@@ -28,13 +28,12 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
+LOGIN_REDIRECT = '/'
 
 # Application definition
 
 INSTALLED_APPS = [
     'bootstrap4',
-    'lawyer.apps.LawyerConfig',
-    'citizen.apps.CitizenConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +43,8 @@ INSTALLED_APPS = [
     'accounts',
     'imagekit',
     'ussd',
-    
+    'lawyer',
+    'citizen',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
-        'PASSWORD':config('DB_PASSWORD'),
+        'PASSWORD': config('DB_PASSWORD'),
 
     }
 }
