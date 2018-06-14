@@ -1,29 +1,25 @@
-
-{% load static%}
+{% extends './base.html'%}
+{% load bootstrap4%}
+{% load static %}
 {% block content %}
 <div class="container">
-  <div class="row">
-    <!-- Empty div -->
-    <div class="col-md-6">
-      <div class="phones">
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="text-center">Sign Up</h3>
+  <div class="row justify-content-center">
+   <div class="card" style="width: 50rem">
+     <div class="card-body">
+      <div class="row no-space">
+        <div class="col-md-4 left">
+          <p class="lead text-center display-4">Sign up</p>
         </div>
-        <div class="panel-body">
-          <form method="POST" enctype="multipart/form-data">
+        <div class="col-md-8 right">
+          <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-              {{form.as_p }}
-            <button type="submit" name="button">Sign up</button>
+             {% bootstrap_form form layout='inline'%}
+            <button type="submit" name="button" class="btn btn-primary">Sign up</button>
           </form>
         </div>
       </div>
-    </div>
-    <!-- empty div -->
-    <div class="col-md-2"></div>
+     </div>
+   </div>
   </div>
 </div>
 </div>
