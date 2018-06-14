@@ -1,4 +1,5 @@
 from django.conf.urls import url
+# from django.contrib.auth.views import view as auth_view
 from . import views
 from django.conf import settings
 

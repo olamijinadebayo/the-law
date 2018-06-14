@@ -41,8 +41,11 @@ def lawyer_signup(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
-        return redirect('lawyers:lawyerdashboard')
+            if user is not None:
+                login(request, user)
+                return redirect('lawyers:lawyerdashboard')
+            else:
+                redirect('accounts:home')
     else:
         form = LawyerSignUpForm()
     return render(request, 'lawyer_signup.html', {'form': form})
