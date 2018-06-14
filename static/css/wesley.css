@@ -23,7 +23,7 @@ h1 {
 
 div#carouselExampleIndicators{
   height: 500px;
-  width: 1000px;
+  width: 100%;
 }
 
 *:before,
@@ -449,7 +449,7 @@ footer ul {
   }
 }
 
-@media screen and (max-width: 1060px) {
+/* @media screen and (max-width: 1060px) {
     #primary { width:67%; }
     #secondary { width:30%; margin-left:3%;}  
 }
@@ -470,4 +470,4 @@ footer ul {
     img[data-src-800px] {
         content: attr(data-src-800px, url);
     }
-}
+} */
