@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 
 # Create your views here.
-
+API_KEY='a98885a5b35185f219cd35263a9a3a7db9196f24a9df7e12a740a9eec53741d4'
 @csrf_exempt
 def index(request):
     if request.method == 'POST':
