@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CitizenSignUpForm, LawyerSignUpForm
 from citizen.models import Citizen
 from lawyer.models import Lawyer
 from django.contrib.auth import login as dj_login, authenticate, logout as dj_logout
 from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
+from django.urls import reverse
 # Create your views here.
 
 
@@ -30,27 +31,28 @@ def citizensignup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             dj_login(request, user)
-        return redirect('citizen')
+        return redirect(citizen)
     else:
         form = CitizenSignUpForm()
     return render(request, 'signup.html', {'form': form})
 
 
-def lawyersignup(request):
+def lawyer_signup(request):
     if request.method == 'POST':
         form = LawyerSignUpForm(request.POST)
         if form.is_valid():
-            user = form.save()
-
-            user.refresh_from_db()
+            user = form.save(commit=False)
             user.is_lawyer = True
-            user.lawyer.location = form.cleaned_data.get('location')
             user.save()
+            lawyer = Lawyer.objects.create(user=user)
+            lawyer.refresh_from_db()
+            lawyer.location = form.cleaned_data.get('location')
+            lawyer.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             dj_login(request, user)
-        return redirect('lawyer')
+        return render(request, 'lawyer.html')
     else:
         form = LawyerSignUpForm()
     return render(request, 'lawyer_signup.html', {'form': form})

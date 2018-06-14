@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <form  action="{% url 'login' %}">
+    <form  action="/accounts/login/">
         {% csrf_token %}
         <p>
             <label class="control-label" for="username">Username</label>
@@ -18,7 +18,7 @@
         <button type="submit">Login</button>
     </form>
     <div class="panel-body">
-      <a href="/accounts/citizensignup">Don't have an account? SignUp here.</a>
+      <a href="">Don't have an account? SignUp here.</a>
     </div>
   </body>
 </html>

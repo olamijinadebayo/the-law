@@ -1,3 +1,6 @@
+__pycache__/
+*.pyc
+.env
+migrations/
+db.sqlite3
 virtual/
-.gitignore
-__pycache__
