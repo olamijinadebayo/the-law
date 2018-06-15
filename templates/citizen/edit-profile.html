@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <h2>{{ user.get_full_name }}</h2>
+        <ul>
+            <li>Username: {{ user.username }}</li>
+            <li>Location: {{ user.profile.bio }}</li>
+            <li>Birth Date: {{ user.profile.birth_date }}</li>
+    
+        </ul>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %} {% bootstrap_form profile_form %}
+            <button class="btn btn-outline-success">Save</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>
