@@ -1,9 +1,14 @@
-$('.base').clone().addClass('overlay').appendTo('.landing');
-$('.cta').hover(function () {
-    $('.overlay').toggleClass('over');
-});
-setTimeout(function () {
-    $('.overlay').addClass('over').delay(600).queue(function () {
-        $(this).removeClass("over").dequeue();
+$(function () {
+    $('a[href*="#"]:not([href="#"])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
     });
-}, 400)
+});

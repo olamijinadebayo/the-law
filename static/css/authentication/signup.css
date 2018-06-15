@@ -1,6 +1,7 @@
-body{
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+/* body{
     /* background-color: blue; */
-}
+} */
 .no-space{
     padding: 0 !important;
     height: 80vh;
@@ -11,6 +12,8 @@ body{
     background-repeat: no-repeat; 
     padding-top:100px;
     color: white;
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
 }
 .right{
     /* background-color: red; */
@@ -25,7 +28,7 @@ body{
     outline-color: red !important;
 }
 .form-group label{
-    color: green;
+    color: blue;
     font-size: 12px;
     font-weight: bold;
 }
