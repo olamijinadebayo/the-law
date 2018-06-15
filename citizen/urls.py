@@ -5,5 +5,6 @@ import lawyer
 app_name = 'citizen'
 
 urlpatterns = [
-    url(r'', views.post, name='post'),
+    url(r'^post/$', views.post, name='post'),
+    url(r'^profile/', views.profile_edit, name='edit'),
 ]
