@@ -28,15 +28,19 @@ class Lawyer(models.Model):
     location = models.CharField(max_length=30, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
-    # def __str__(self):
-    #     return self.user
+    def __str__(self):
+        return self.user.email
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_lawyer_profile(sender, instance, created, **kwargs):
+    if instance.is_lawyer:
+        Lawyer.objects.get_or_create(user=instance)
 
 
-# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-# def update_lawyer(sender, instance, created, **kwargs):
-#     if created:
-#         Lawyer.objects.create(user=instance)
-#     instance.lawyer.save()
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def save_lawyer_profile(sender, instance, **kwargs):
+    if instance.is_lawyer:
+        instance.lawyer_profile.save()
 
 
 class Articles(models.Model):

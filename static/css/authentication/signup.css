@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster);
 /* body{
-    /* background-color: blue; */
+    /* background-color: blue; 
 } */
 .no-space{
     padding: 0 !important;
@@ -16,7 +16,7 @@
     font-family: 'Lobster', cursive;
 }
 .right{
-    /* background-color: red; */
+    background-color: rgb(142, 179, 174);
     padding: 80px;
     
 }

@@ -31,10 +31,11 @@ def citizensignup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             dj_login(request, user)
-        return redirect(citizen)
+        return render(request, 'login.html')
+        # return redirect(citizen)
     else:
         form = CitizenSignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'accounts/signup.html', {'form': form})
 
 
 def lawyer_signup(request):
@@ -44,15 +45,19 @@ def lawyer_signup(request):
             user = form.save(commit=False)
             user.is_lawyer = True
             user.save()
-            lawyer = Lawyer.objects.create(user=user)
-            lawyer.refresh_from_db()
-            lawyer.location = form.cleaned_data.get('location')
-            lawyer.save()
+            # lawyer = Lawyer.objects.create(user=user)
+            # lawyer.refresh_from_db()
+            # lawyer.location = form.cleaned_data.get('location')
+
+            user.lawyer_profile.location = form.cleaned_data.get('location')
+            user.lawyer_profile.save()
+
+            # lawyer.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             dj_login(request, user)
-        return render(request, 'lawyer.html')
+        return redirect('accounts:lawyer')
     else:
         form = LawyerSignUpForm()
     return render(request, 'lawyer_signup.html', {'form': form})

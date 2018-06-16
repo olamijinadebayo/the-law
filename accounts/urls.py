@@ -1,4 +1,5 @@
 from django.conf.urls import url
+# from django.contrib.auth.views import view as auth_view
 from . import views
 from django.conf import settings
 
@@ -10,6 +11,6 @@ urlpatterns = [
     url(r'^loginpage/$', views.loginpage, name='loginpage'),
     url(r'^login/$', views.login, name='login'),
     url(r'^logout/$', views.logout, name='logout'),
-    url(r'^citizen/signup/$', views.citizensignup, name='citizen'),
-    url(r'^lawyer/signup/$', views.lawyer_signup, name='lawyer'),
+    url(r'^citizen/signup/$', views.citizensignup, name='citizenSignup'),
+    url(r'^lawyer/signup/$', views.lawyer_signup, name='lawyerSignup'),
 ]
