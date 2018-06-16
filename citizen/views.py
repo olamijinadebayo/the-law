@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.db import transaction
 from .forms import PostForm, ProfileForm
+from django.contrib import messages
 
 # Create your views here.
 def post(request):
@@ -16,7 +17,7 @@ def post(request):
                 return redirect('citizen:edit')
         else:
             form = PostForm()
-            print(request.user)
+            print(request.user.profile.first_name)
         return render(request, 'citizen/post.html', {'form': form})
     else:
         return redirect('accounts:citizenSignup')
@@ -26,12 +27,12 @@ def post(request):
 def profile_edit(request):
     if request.method == 'POST':
         profile_form = ProfileForm(
-            request.POST, request.FILES, instance=settings.AUTH_USER_MODEL)
+            request.POST, request.FILES, instance=request.user.profile)
         if profile_form.is_valid():
             profile_form.save()
             # messages.success(request, _(
             #     'Your profile was successfully updated!'))
-            return redirect('/')
+            return redirect('citizen:post')
         else:
             messages.error(request, ('Please correct the error below.'))
     else:

@@ -6,12 +6,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        {% bootstrap_css %}
+        <style>
+            ::-webkit-file-upload-button {
+                background: rgb(19, 52, 202);
+                opacity: 0.8;
+                color: yellow;
+                padding: 0.4em;
+                border: 0px;
+            }
+        </style>
+                {% bootstrap_css %}
     {% endblock%}
     <title>Document</title>
+    
 </head>
 <body>
+    {% include '../includes/navbar.html'%}
     {% block content%}
+    {% endblock %}
+    {% block scripts%}
+        {% bootstrap_javascript jquery="full"%}
     {% endblock %}
 </body>
 </html>
