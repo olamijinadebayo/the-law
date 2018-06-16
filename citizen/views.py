@@ -5,9 +5,10 @@ from django.db import transaction
 from .forms import PostForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from lawyer.models import Lawyer
 
 # Create your views here.
-# @login_required(login_url='accounts:signup')
+# @login_required(login_url='/accounts/login')?
 def post(request):
     if request.user.is_citizen == True:
         if request.method == 'POST':
@@ -20,6 +21,7 @@ def post(request):
         else:
             form = PostForm()
             # print(request.user.profile.first_name)
+            print(Lawyer.objects.all())
         return render(request, 'citizen/post.html', {'form': form})
     else:
         return redirect('accounts:citizenSignup')
