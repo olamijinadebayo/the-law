@@ -1,32 +1,36 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from lawyer.forms import NewPostForm, ProfileForm
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
-import datetime as dt 
+import datetime as dt
 from .models import Articles
 
 # Create your views here.
-def signup(request):
-    return render(request, 'signup.html')
+
+
 def lawyerdashboard(request):
     return render(request, 'law/lawyerdashboard.html')
 
+
 def lawyerprofile(request):
-    return render(request,'law/lawyerprofile.html')
+    return render(request, 'law/lawyerprofile.html')
+
 
 def lawyercases(request):
     return render(request, 'law/viewcase.html')
 
+
 def lawyerarticles(request):
-    return render(request,'law/lawyerarticle.html')
+    return render(request, 'law/lawyerarticle.html')
+
 
 def newarticle(request):
     # current_user = request.user
     # profile = request.user.profile
 
     if request.method == 'POST':
-        form = NewPostForm(request.POST,request.FILES)
+        form = NewPostForm(request.POST, request.FILES)
 
         if form.is_valid():
             post = form.save(commit=False)
@@ -39,9 +43,10 @@ def newarticle(request):
     else:
         form = NewPostForm()
 
-    return render(request,'law/new_post.html',{"form":form})
+    return render(request, 'law/new_post.html', {"form": form})
 
-def change_lawyerProfile(request,user_id):
+
+def change_lawyerProfile(request, user_id):
     profile = request.user.profile
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -52,10 +57,4 @@ def change_lawyerProfile(request,user_id):
 
     else:
         form = ProfileForm(instance=request.user.profile)
-    return render(request,'lawyer_editprofile.html',{"form":form})
-
-
-def logout_view(request):
-    
-    logout(request)
-    return redirect('accounts:lawyer')
+    return render(request, 'lawyer_editprofile.html', {"form": form})
