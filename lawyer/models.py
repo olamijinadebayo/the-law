@@ -28,9 +28,8 @@ class Lawyer(models.Model):
     location = models.CharField(max_length=30, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
-    # def __str__(self):
-    #     return self.user
-
+    def __str__(self):
+        return self.user.email
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_lawyer_profile(sender, instance, created, **kwargs):
