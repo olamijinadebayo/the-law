@@ -496,3 +496,22 @@ footer ul {
         content: attr(data-src-800px, url);
     }
 } */
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+footer {
+  text-align: left;
+}
+.closure {
+  text-align: center;
+  font-size: 12px;
+  padding: 5px 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
