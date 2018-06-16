@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-
+import africastalking
 # Create your views here.
+API_KEY='a98885a5b35185f219cd35263a9a3a7db9196f24a9df7e12a740a9eec53741d4'
 
 @csrf_exempt
 def index(request):
@@ -12,15 +13,20 @@ def index(request):
         phone_number = request.POST.get('phoneNumber')
         text = request.POST.get('text')
 
+
         if text == "":
-            menu_text = "CON Welcome to KPLC prepaid, please choose an option:\n"
-            menu_text += "1. Check my Account information\n"
-            menu_text += "2. Top-Up my balance\n"
+            menu_text = "CON Welcome to De Law, Kindly choose an option:\n"
+            menu_text += "1. Get Lawyer\n"
+            menu_text += "2. Get Legal Advice\n"
       
         elif text =="1":
-            menu_text = "CON Choose the account information that you want to view \n"
-            menu_text += "1. My Token balance\n"
-            menu_text += "2. My Account number \n"
+            menu_text = "CON Choose the type of lawyer you want to talk to \n"
+            menu_text += "1. Criminal law\n"
+            menu_text += "2. Family Law\n"
+            menu_text += "3. Co-orperate Law \n" 
+            menu_text += "4. Civil rights Law \n"
+            menu_text += "5. Labor Law  \n"
+
 
         elif text =="2":
             menu_text = "CON Please enter the amount"
@@ -43,3 +49,4 @@ def index(request):
             menu_text = "END Thank-you"
 
     return HttpResponse(response)
+    
