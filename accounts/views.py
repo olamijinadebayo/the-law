@@ -45,14 +45,14 @@ def lawyer_signup(request):
             user = form.save(commit=False)
             user.is_lawyer = True
             user.save()
-            # lawyer = Lawyer.objects.create(user=user)
-            # lawyer.refresh_from_db()
-            # lawyer.location = form.cleaned_data.get('location')
+            lawyer = Lawyer.objects.create(user=user)
+            lawyer.refresh_from_db()
+            lawyer.location = form.cleaned_data.get('location')
 
-            user.lawyer_profile.location = form.cleaned_data.get('location')
-            user.lawyer_profile.save()
+            # user.lawyer_profile.location = form.cleaned_data.get('location')
+            # user.lawyer_profile.save()
 
-            # lawyer.save()
+            lawyer.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
@@ -86,4 +86,4 @@ def loginpage(request):
 
 def logout(request):
     dj_logout(request)
-    return redirect('loginpage')
+    return redirect('accounts:loginpage')

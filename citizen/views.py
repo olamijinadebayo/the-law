@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect,reverse
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.db import transaction
@@ -9,14 +9,16 @@ from lawyer.models import Lawyer
 
 # Create your views here.
 # @login_required(login_url='/accounts/login')?
+
+
 def post(request):
     if request.user.is_citizen == True:
         if request.method == 'POST':
             form = PostForm(request.POST)
             if form.is_valid():
-                post=form.save(commit=False)
+                post = form.save(commit=False)
                 post.citizen = request.user
-                form.save() 
+                form.save()
                 return redirect('citizen:edit')
         else:
             form = PostForm()
