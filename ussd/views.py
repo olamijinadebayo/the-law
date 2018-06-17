@@ -2,22 +2,34 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 import africastalking
+
 # Create your views here.
-API_KEY='a98885a5b35185f219cd35263a9a3a7db9196f24a9df7e12a740a9eec53741d4'
+api_key='a98885a5b35185f219cd35263a9a3a7db9196f24a9df7e12a740a9eec53741d4'
+username='sandbox'
+phoneNumber='+254724629599'
+url='cebc73a9.ngrok.io'
+serviceCode='*384*09876#'
 
 @csrf_exempt
 def index(request):
+    africastalking.initializing(username,api_key)
+    ussd = africastalking.USSD
     if request.method == 'POST':
-        session_id = request.POST.get('sessionId')
-        service_code = request.POST.get('serviceCode')
-        phone_number = request.POST.get('phoneNumber')
-        text = request.POST.get('text')
-
+        session_id = request.POST.get('sessionId', None)
+        service_code = request.POST.get('serviceCode', None)
+        phone_number = request.POST.get('phoneNumber', None)
+        text = request.POST.get('text', None)
+        url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
+        response = self.sendRequest(url, parameters)
+        print(session_id)
+        texttoarray     = text.split('*')
+        userResponse    = texttoarray[-1]
+    
 
         if text == "":
             menu_text = "CON Welcome to De Law, Kindly choose an option:\n"
             menu_text += "1. Get Lawyer\n"
-            menu_text += "2. Get Legal Advice\n"
+            menu_text += "2. Choose your price\n"
       
         elif text =="1":
             menu_text = "CON Choose the type of lawyer you want to talk to \n"
@@ -29,13 +41,10 @@ def index(request):
 
 
         elif text =="2":
-            menu_text = "CON Please enter the amount"
+            menu_text = "CON Please enter an amount"
                 
         elif text =="1*1":
-            token = random.randrange(16,38)
-            menu_text = "END Your Token balance is: "+ str(token)
-            client.publish("amaina/token",token)
-            send_sms("Your remaining tokens are: ", token)
+            
             time.sleep(2)
             
         elif text =="1*2":
@@ -44,7 +53,6 @@ def index(request):
         elif text =="2*"+userResponse:
             client.publish("amaina/amount",userResponse)
             client.subscribe("amaina/amount")
-            send_sms("Thank you the amount paid in is: ", userResponse)
             time.sleep(2)
             menu_text = "END Thank-you"
 
