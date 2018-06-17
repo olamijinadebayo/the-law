@@ -59,14 +59,14 @@ def lawyer_signup(request):
 
 
 def login(request):
-    if request.GET.get('username') and request.GET.get("password"):
-        username = request.GET.get("username")
-        password = request.GET.get("password")
+    if request.POST.get('username') and request.POST.get("password"):
+        username = request.POST.get("username")
+        password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
         if user is not None:
             dj_login(request, user)
             if user.is_citizen == True:
-                return render(request, 'citizen.html')
+                return redirect('citizen:edit')
             else:
                 return render(request, 'lawyer.html')
         else:
