@@ -48,8 +48,35 @@ def index(request):
             time.sleep(2)
             
         elif text =="1*2":
-            menu_text = "END Your account number is ACOO10SWO2101."
+            menu_text = "CON Select a lawyer"
         
+        elif text =="1*3":
+            menu_text = "CON Choose one of the following lawyers"
+            menu_text += "1. Wesley Mutwiri\n"
+            menu_text += "2. Peter Muturi\n"
+            menu_text += "3. Risper Kemmy\n"
+            menu_text += "4. Olamijin\n"
+
+            time.sleep(2)
+
+        elif text =="1*4":
+            menu_text = "CON Choose one of the following lawyers"
+            menu_text += "1. Wesley Mutwiri\n"
+            menu_text += "2. Peter Muturi\n"
+            menu_text += "3. Risper Kemmy\n"
+            menu_text += "4. Olamijin\n"
+
+            time.sleep(2)
+        
+        elif text =="1*5":
+            menu_text = "CON Choose one of the following lawyers"
+            menu_text += "1. Wesley Mutwiri\n"
+            menu_text += "2. Peter Muturi\n"
+            menu_text += "3. Risper Kemmy\n"
+            menu_text += "4. Olamijin\n"
+
+            time.sleep(2)
+
         elif text =="2*"+userResponse:
             client.publish("amaina/amount",userResponse)
             client.subscribe("amaina/amount")
