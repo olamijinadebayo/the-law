@@ -61,6 +61,13 @@ def newarticle(request):
 #     else:
 #         form = ProfileForm(instance=request.user.profile)
 #     return render(request, 'lawyer_editprofile.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
+def profile(request, profile_id):
+    current_profile = Law.objects.get(id=profile_id)
+    return render(request, 'law/lawyerprofile.html', {"current_profile": current_profile})
+
+
 @transaction.atomic
 def edit_profile(request):
     if request.method == 'POST':
