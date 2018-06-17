@@ -5,11 +5,10 @@
         <div class="row justify-content-center">
             <div class="card" style="width: 50rem;border: none;">
                 <div class="card-body">
-                    {{request.user}}
                     <form action="" method="POST">
                         {% csrf_token %}
                         {% bootstrap_form form layout='inline'%}
-                        <button type="submit" class="btn btn-success">Post</button>
+                        <button type="submit" class="btn btn-primary">Post</button>
                     </form>
                 </div>
             </div>
