@@ -1,5 +1,5 @@
 from django import forms 
-from .models import Articles
+from .models import Articles, Lawyer
 
 class NewPostForm(forms.ModelForm):
     class Meta:
@@ -8,6 +8,6 @@ class NewPostForm(forms.ModelForm):
 
 class ProfileForm(forms.ModelForm):
     class Meta:
-        # model = Profile
+        model = Lawyer
         exclude = ['time','first_name','email','last_name']
         

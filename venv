@@ -1,0 +1,5 @@
+SECRET_KEY='HELLO'
+DB_NAME='law'
+DB_USER='ashorta'
+DB_PASSWORD='Ubuntu@101'
+DEBUG=True
