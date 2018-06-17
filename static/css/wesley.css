@@ -351,7 +351,9 @@ footer p {
 }
 
 .claim {
-  background-color: #1E233F;
+  background: url('http://ummeed.in/wp-content/uploads/2016/10/law-wallpapers-hd-1080p-1920x1080-desktop-02-800x445.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .scream {
