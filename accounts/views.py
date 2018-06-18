@@ -56,8 +56,6 @@ def lawyer_signup(request):
     else:
         form = LawyerSignUpForm()
     return render(request, 'lawyer_signup.html', {'form': form})
-<<<<<<< HEAD
-=======
 
 
 def login(request):
@@ -84,4 +82,3 @@ def loginpage(request):
 def logout(request):
     dj_logout(request)
     return redirect('loginpage')
->>>>>>> b55333f3cef9cae8ecab2ed860e328c3d8e0c465

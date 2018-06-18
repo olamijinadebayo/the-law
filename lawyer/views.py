@@ -57,14 +57,4 @@ def change_lawyerProfile(request, user_id):
 
     else:
         form = ProfileForm(instance=request.user.profile)
-<<<<<<< HEAD
-    return render(request,'lawyer_editprofile.html',{"form":form})
-
-
-def logout_view(request):
-    
-    logout(request)
-    return redirect('accounts:lawyer')
-=======
     return render(request, 'lawyer_editprofile.html', {"form": form})
->>>>>>> b55333f3cef9cae8ecab2ed860e328c3d8e0c465
