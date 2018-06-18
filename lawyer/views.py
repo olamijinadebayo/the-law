@@ -13,7 +13,7 @@ def lawyerdashboard(request):
     return render(request, 'law/lawyerdashboard.html')
 
 
-def lawyerprofile(request):
+def lawyerprofile(request, lawyer_id):
     return render(request, 'law/lawyerprofile.html')
 
 
