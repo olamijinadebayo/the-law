@@ -32,20 +32,38 @@ class Citizen(models.Model):
 
 
 class Post(models.Model):
-    case_category = models.CharField(max_length=30)
+    PRIMARY = 'pr'
+    CASE_CATEGORY = (
+        (PRIMARY, 'None'),
+        ('Dd', 'Druken disorder'),
+        ('Lf', 'Land fraud'),
+        ('Rb', 'Robbery'),
+        ('Md', 'Murder'),
+        ('Fr', 'Fraud'),
+        ('Sa', 'Sexual Assault'),
+    )
+    case_category = models.CharField(
+        max_length=2,
+        choices=CASE_CATEGORY,
+        default=PRIMARY,
+    )
+    # case_category = models.CharField(max_length=30)
     case_number = models.CharField(max_length=12)
     case_description = models.TextField()
     post_date = models.DateTimeField(auto_now_add=True)
     citizen = models.ForeignKey(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.case_description
 
-# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-# def create_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-#
-#
-# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.profile.save()
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()

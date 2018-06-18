@@ -5,11 +5,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h2>{{ user.get_full_name }}</h2>
-                <ul>
-                    <li>Username: {{ user.username }}</li>
-                    <li>Location: {{ user.profile.bio }}</li>
-                    <li>Birth Date: {{ user.profile.birth_date }}</li>
+                {% if user.profile.avatar%}
+                     <img src="{{ user.profile.avatar.url }}" class="img-fluid profile">
+                {% else%}
+                    <div class="no-image justify-content-center">
+                        <p class="lead text-center">No image</p>
+                    </div>
+                {% endif%}
+                <br>
+                <h2>{{ user.get_full_name |upper}}</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"> <span class="font-weight-bold"> Username </span>: {{ user.username |upper}}</li>
+                    <li class="list-group-item"> <span class="font-weight-bold"> Birth Date </span> : {{ user.profile.location }}</li>
+                    <li class="list-group-item"> <span class="font-weight-bold"> Location </span> : {{ user.profile.birth_date }}</li>
+                    <li class="list-group-item"> <span class="font-weight-bold">Bio: </span>  {{ user.profile.bio }}</li>
             
                 </ul>
             </div>

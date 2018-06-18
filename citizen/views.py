@@ -6,11 +6,31 @@ from .forms import PostForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from lawyer.models import Lawyer
+from .models import Post
 
 # Create your views here.
-# @login_required(login_url='/accounts/login')?
 
 
+@login_required
+def home(request):
+    if request.user.is_citizen == True:
+        user_id = request.user.id
+        posts = Post.objects.filter(citizen_id=user_id)
+        return render(request, 'citizen/home.html', {'posts': posts})
+    else:
+        return redirect('accounts:citizenSignup')
+
+
+@login_required
+def advocates(request):
+    if request.user.is_citizen == True:
+        advocates = Lawyer.objects.all()
+        return render(request, 'citizen/advocates.html', {'advocates': advocates})
+    else:
+        return redirect('accounts:citizenSignup')
+
+
+@login_required()
 def post(request):
     if request.user.is_citizen == True:
         if request.method == 'POST':
@@ -23,24 +43,29 @@ def post(request):
         else:
             form = PostForm()
             # print(request.user.profile.first_name)
-            print(Lawyer.objects.all())
+            # print(request.user.id)
+            # print(Lawyer.objects.all())
         return render(request, 'citizen/post.html', {'form': form})
     else:
         return redirect('accounts:citizenSignup')
 
 
+@login_required()
 @transaction.atomic
 def profile_edit(request):
-    if request.method == 'POST':
-        profile_form = ProfileForm(
-            request.POST, request.FILES, instance=request.user.profile)
-        if profile_form.is_valid():
-            profile_form.save()
-            # messages.success(request, _(
-            #     'Your profile was successfully updated!'))
-            return redirect('citizen:post')
+    if request.user.is_citizen == True:
+        if request.method == 'POST':
+            profile_form = ProfileForm(
+                request.POST, request.FILES, instance=request.user.profile)
+            if profile_form.is_valid():
+                profile_form.save()
+                # messages.success(request, _(
+                #     'Your profile was successfully updated!'))
+                return redirect('citizen:post')
+            else:
+                messages.error(request, ('Please correct the error below.'))
         else:
-            messages.error(request, ('Please correct the error below.'))
+            profile_form = ProfileForm(instance=request.user.profile)
+        return render(request, 'citizen/edit-profile.html', {"profile_form": profile_form})
     else:
-        profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'citizen/edit-profile.html', {"profile_form": profile_form})
+        return redirect('accounts:citizenSignup')

@@ -1,52 +1,9 @@
-{%load static%}
-<html>
-<head>
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="HandheldFriendly" content="true">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://use.fontawesome.com/69707593c1.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{%static 'css/wesley.css'%}">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
-    <!-- Start of Async Drift Code -->
-    <script>
-        "use strict";
-
-        !function () {
-            var t = window.driftt = window.drift = window.driftt || [];
-            if (!t.init) {
-                if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-                t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
-                    t.factory = function (e) {
-                        return function () {
-                            var n = Array.prototype.slice.call(arguments);
-                            return n.unshift(e), t.push(n), t;
-                        };
-                    }, t.methods.forEach(function (e) {
-                        t[e] = t.factory(e);
-                    }), t.load = function (t) {
-                        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-                        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-                        var i = document.getElementsByTagName("script")[0];
-                        i.parentNode.insertBefore(o, i);
-                    };
-            }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3z78wr3dfbxc');
-    </script>
-    <!-- End of Async Drift Code -->
-</head>
-    <body>
+{%extends 'landingpage/base.html'%}
+      {%block content%}
     <div class="container-fluid">
         <div class="row">
+            
+                    
             <div class="claim">
                 <div class="claim--contents">
                     <h1>De Law... </h1>
@@ -55,7 +12,9 @@
                         Easily join our ever expanding community of legal advisors and be in the know
                         </p>
                     <p>
-                        <a href="#go" class="button button-wesley button-pill button-giant">Read More</a>
+                        <a href="{% url 'accounts:citizenSignup' %}" class="button button-wesley button-pill button-giant">Citizen</a>
+                        <a href="{%url 'accounts:lawyerSignup' %}" class="button button-wesley button-pill button-giant">Lawyer</a>
+
                     </p>
                 </div>
             </div>
@@ -63,8 +22,8 @@
             
             <div class="container" id="go">
             
-                <div class="grid grid-pad">
-                    <div class="col-1-3 mobile-col-1-1">
+                <div class="row">
+                    <div class="col-md-4 ">
                         <h1>Geo Mapping</h1>
                         <p>We connect you to the legal team of Kenya such as advocates and lawyers both freelance and firms around you based on your location
                             By using state of the art google maps technology we've made finding legal matters in your area simpler
@@ -75,8 +34,8 @@
                             </a>
                         </p>
                     </div>
-                    <div class="col-1-3 mobile-col-1-1">
-                        <h1>Assured Good legal advice&trade;</h1>
+                    <div class="col-md-4 ">
+                        <h1>Good legal advice</h1>
                         <p>Only the best of the best apply to become lawyers or advocates into our app ensuring that the legal advice one gets is sound and 
                             of the highest quality available. Like Nakumatt... You need it we've got it
                         </p>
@@ -86,9 +45,9 @@
                             </a>
                         </p>
                     </div>
-                    <div class="col-1-3 mobile-col-1-1">
+                    <div class="col-md-4 ">
                         <h1>Mobile USSD</h1>
-                        <p>We understand our own customers and give providence to even the least enabled citizen. The USSD platform incorporates all that one requires from our site in a
+                        <p>The USSD platform incorporates all that one requires from our site in a
                             way in which one can get all the information from the ease of their phones even in the rural areas with our USSD code hosted with details you may need
                         </p>
                         <p>
@@ -97,16 +56,7 @@
                             </a>
                         </p>
                     </div>
-                    <div class="col-1-3 mobile-col-1-1">
-                        <h1>Legal Bot</h1>
-                        <p>Additional feature that we bring into the legal industry that helps us stand out from the rest is our state of the art legal advice bot
-                            The bot converses with the individual and sends back data according to the constitution of Kenya to help with simple cases that don't require consultation from a lawyer
-                        <p>
-                            <a href="#" class="button button-pill button-wesley">Read more
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </p>
-                    </div>
+                   
                 </div>
             
             </div>
@@ -121,7 +71,7 @@
                         The application is secure and messages are encrypted using end to end encryption to ensure privacy on matters concerning your legal cases since we value user privacy
 
                     </p>
-                        <a href="#go2" class="button button-wesley button-pill button-giant">How we trim our lawn</a>
+                        <a href="#go2" class="button button-wesley button-pill button-giant">See the Lawyers</a>
                 </div>
             </div>
             
@@ -192,11 +142,6 @@
                         <p>
                         </p>
                     </div>
-                    <div class="col-1-3">
-                        <p>
-
-                        </p>
-                    </div>
                 </div>
             
             </div>
@@ -207,12 +152,62 @@
                     </div>
                 </div>
     </div>
-    <script src="{% static 'js/wesley.js' %}"></script>   
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+
+<footer>
+
+    <div class="row">
+        <div class="col-md-4">
+            <ul>
+                <li>
+                    <a href="#">Company</a>
+                </li>
+                <li>
+                    <a href="#">Team</a>
+                </li>
+                <li>
+                    <a href="#">References</a>
+                </li>
+                <li>
+                    <a href="#">Whitepapers</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Chatbot</a>
+                </li>
+                <li>
+                    <a href="#">Github code</a>
+                </li>
+                <li>
+                    <a href="#">Community</a>
+                </li>
+            
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li>
+                    <a href="#">Help Center</a>
+                </li>
+                <li>
+                    <a href="#">Statement of Support</a>
+                </li>
+                <li>
+                    <a href="#">Managed Services</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>&copy; 2018 Wesley Mutwiri</li>
+            </ul>
+        </div>
+    </div>
+
+</footer>
+  
+{%endblock%}

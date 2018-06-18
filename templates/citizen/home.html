@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+    <div class="container">
+        {% for post in posts%}
+           <div class="row">
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        <span>Category</span> |
+                        <span>{{post.get_case_category_display}}</span>
+                    </div>
+                    <div class="card-body">
+                        <p>{{post}}</p><br>
+                    </div>
+                    <div class="card-footer justify-content-end">
+                        <span>{{post.post_date}}</span> 
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {% endfor%}
+    </div>
+{% endblock %}

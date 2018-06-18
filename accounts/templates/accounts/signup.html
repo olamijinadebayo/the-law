@@ -5,13 +5,15 @@
       <div class="card-body">
         <div class="row no-space">
           <div class="col-md-4 left">
-            <p class="lead text-center display-4">Sign up</p>
+            <p class="lead text-center display-4">Citizen Sign up</p>
           </div>
           <div class="col-md-8 right">
             <form method="post" enctype="multipart/form-data">
               {% csrf_token %} {% bootstrap_form form layout='inline'%}
               <button type="submit" name="button" class="btn btn-primary">Sign up</button>
             </form>
+            <br>
+            <a href="{% url 'accounts:loginpage'%}">Already a member</a>
           </div>
         </div>
       </div>

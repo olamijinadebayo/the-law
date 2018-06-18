@@ -45,7 +45,7 @@ class Lawyer(models.Model):
     # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.user.email
+        return self.user.username
 
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
