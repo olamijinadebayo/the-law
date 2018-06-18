@@ -26,12 +26,7 @@ div#carouselExampleIndicators{
   width: 100%;
 }
 
-*:before,
-*:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 html {
   font-size: 16px;
@@ -274,7 +269,7 @@ footer {
   background: #1E233F;
   color: #fff;
   margin-bottom: 0;
-  padding: 20px 0;
+  /* padding: 20px 0; */
 }
 
 footer p {
@@ -424,7 +419,7 @@ footer p {
   justify-content: center;
   align-items: center;
   background-attachment: scroll;
-  background-size: 1920px 1080px;
+  background-size: cover;
   min-height: 100vh;
   padding: 2vh 2vw;
   text-align: center;
