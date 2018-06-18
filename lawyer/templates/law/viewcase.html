@@ -1,17 +1,12 @@
-{% extends 'law/base.html' %} {% block content %} 
+{% extends 'law/base.html' %} {% block content %}
 <h1 class="text-center"></h1>
 
-
-<div class="container">
-</div>
 <div class="container">
     <div class="row">
-
-{%for case in case%}       
         <div class="col-md-6 ">
             <center>
                 <div class="card">
-                   
+
                     <div class="card-body">
 
                  This is a sample case bwoy
@@ -24,13 +19,10 @@
                 </div>
             </center>
 
-        {% empty %}
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h1>Sorry, There are no cases to display... Try again later</h1>
 
-        </div>
-{%endfor%}
+
+
     </div>
 </div>
 </div>

@@ -6,8 +6,8 @@ from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.db import transaction
-from .forms import ProfileForm
 from django.contrib import messages
+from citizen.models import Citizen, Post, Profile
 
 # Create your views here.
 
@@ -21,7 +21,8 @@ def lawyercases(request):
 
 
 def lawyerarticles(request):
-    return render(request, 'law/lawyerarticle.html')
+    cases = Post.objects.all()
+    return render(request, 'law/lawyerarticle.html', {"cases": cases})
 
 
 def newarticle(request):
