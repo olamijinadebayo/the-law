@@ -86,4 +86,4 @@ def loginpage(request):
 
 def logout(request):
     dj_logout(request)
-    return redirect('loginpage')
+    return redirect('accounts:loginpage')
