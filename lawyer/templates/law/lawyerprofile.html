@@ -1,46 +1,36 @@
 {%extends 'law/base.html'%}
+{% load static %}
+ {% load bootstrap4%}
+  {% block styles %}
+   {{block.super}}
+<link rel="stylesheet" href="{% static 'css/lawyer/profile.css'%}">
+{% endblock %}
 {% block content %}
-<div class="container-fluid">
-  <div class="wrapper border-bottom">
-    <div class="row">
-      <div class="col-md-4">
-        {% if current_profile.avatar%}
-          <img src="{{ current_profile.avatar.url}}" class="img-responsive img-circle profile" alt="avatar">
-        {% endif %}
-      </div>
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-6 pd-5"><p class="bold">{{current_profile.user.username}}</p></div>
-              <div class="col-md-6">
-                <p>
-                  {% if not current_profile.user.id == request.user.id%}
+<div class="card">
+  {% if current_profile.user.id == request.user.id%}
+    <a class="edit" href="{% url 'lawyer:edit'%}"><span><i class=" float-right fa-3x fa-edit"></i></span></a>
+  {% endif%}
+  {% if current_profile.avatar%}
+  <img src="{{ current_profile.avatar.url}}" class="text-center rounded-circle profile" alt="avatar">
+  {% endif %}
+  <h1><span class="bold">{{ current_profile.user.first_name }} {{ current_profile.user.last_name}}</span></h1>
+  <p class="bold"> username:{{current_profile.user.username}}</p>
+  <p>category:  {{ current_profile.category}}</p>
+  <p>Bio:{{ current_profile.bio}}</p>
+  <div style="margin: 24px 0;">
+   <a href="#"><i class="fa fa-dribbble"></i></a>
+   <a href="#"><i class="fa fa-twitter"></i></a>
+   <a href="#"><i class="fa fa-linkedin"></i></a>
+   <a href="#"><i class="fa fa-facebook"></i></a>
+</div>
+<p><button>Contact</button></p>
+</div>
+<br><br>
 
-                  {%endif%}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-8">  {% if current_profile.user.id == request.user.id%}
-              <a type="button" class="edit" href="">Edit Profile</a>
-            {% endif%}
-          </div>
-        </div>
 
-        <div class="bio">
-          <p><span class="bold">{{ current_profile.user.first_name }} {{ current_profile.user.last_name}}</span></p>
-          <p>{{ current_profile.bio}}</p>
-        </div>
+<div class="container">
+  <h4 class="text-center">Articles</h4>
 
-      </div>
-    </div>
-  </div>
-  <div class="container post_width">
-    <h4 class="text-center">Articles</h4>
-    <div class="row">
-
-    </div>
-  </div>
+</div>
 </div>
 {% endblock %}

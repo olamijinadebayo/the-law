@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ussd',
     'lawyer',
     'citizen',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

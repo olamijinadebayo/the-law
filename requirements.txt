@@ -1,6 +1,7 @@
 dj-database-url==0.5.0
 Django==1.11.5
 django-appconf==1.0.2
+django-bootstrap3==10.0.1
 django-bootstrap4==0.0.6
 django-imagekit==4.0.2
 django-model-utils==3.1.2
