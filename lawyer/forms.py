@@ -2,10 +2,10 @@ from django import forms
 from .models import Articles, Lawyer, Law
 
 
-class NewPostForm(forms.ModelForm):
+class NewArticleForm(forms.ModelForm):
     class Meta:
         model = Articles
-        exclude = ['time', 'username']
+        exclude = ['time', 'lawyer']
 
 
 class ProfileForm(forms.ModelForm):

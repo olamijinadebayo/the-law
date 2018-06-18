@@ -67,4 +67,4 @@ class Articles(models.Model):
     name = models.CharField(max_length=30)
     post = models.TextField()
     time = models.DateTimeField(auto_now_add=True)
-    lawyer = models.ForeignKey(Lawyer, on_delete=models.CASCADE)
+    lawyer = models.ForeignKey(Law, on_delete=models.CASCADE)
