@@ -31,11 +31,16 @@ class Lawyer(models.Model):
     def __str__(self):
         return self.user.username
 
-# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-# def update_lawyer(sender, instance, created, **kwargs):
-#     if created:
-#         Lawyer.objects.create(user=instance)
-#     instance.lawyer.save()
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_lawyer_profile(sender, instance, created, **kwargs):
+    if instance.is_lawyer:
+        Lawyer.objects.get_or_create(user=instance)
+
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def save_lawyer_profile(sender, instance, **kwargs):
+    if instance.is_lawyer:
+        instance.lawyer_profile.save()
 
 
 class Articles(models.Model):
