@@ -10,8 +10,9 @@ class PostForm(forms.ModelForm):
 
 
 class ProfileForm(forms.ModelForm):
-    
+
     birth_date = forms.DateTimeField(widget=SelectDateWidget)
+
     class Meta:
         model = Profile
         exclude = ['user']

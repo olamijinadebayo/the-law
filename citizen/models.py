@@ -17,7 +17,6 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-        
 
 class Citizen(models.Model):
     '''
@@ -33,7 +32,7 @@ class Citizen(models.Model):
 
 
 class Post(models.Model):
-    PRIMARY='pr'
+    PRIMARY = 'pr'
     CASE_CATEGORY = (
         (PRIMARY, 'None'),
         ('Dd', 'Druken disorder'),
@@ -55,18 +54,16 @@ class Post(models.Model):
     citizen = models.ForeignKey(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)
 
-
     def __str__(self):
         return self.case_description
 
 
-
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
+# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+# def create_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
+#
+#
+# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+# def save_user_profile(sender, instance, **kwargs):
+#     instance.profile.save()

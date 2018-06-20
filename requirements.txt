@@ -10,6 +10,7 @@ requests==2.19.0
 schema==0.6.7
 urllib3==1.23
 django-appconf==1.0.2
+django-bootstrap3==10.0.1
 django-bootstrap4==0.0.6
 django-imagekit==4.0.2
 django-model-utils==3.1.2

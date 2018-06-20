@@ -2,7 +2,7 @@ from django.conf.urls import url
 # from django.contrib.auth.views import view as auth_view
 from . import views
 from django.conf import settings
-
+from django.conf.urls.static import static
 app_name = 'accounts'
 
 urlpatterns = [
@@ -14,3 +14,5 @@ urlpatterns = [
     url(r'^citizen/signup/$', views.citizensignup, name='citizenSignup'),
     url(r'^lawyer/signup/$', views.lawyer_signup, name='lawyerSignup'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
