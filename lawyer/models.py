@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 import datetime as dt
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
-
+from citizen.models import Profile,Citizen
 # Create your models here.
 
 
@@ -47,18 +47,20 @@ class Lawyer(models.Model):
     def __str__(self):
         return self.user.username
 
+    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+    def create_lawyer_profile(sender, instance, created, **kwargs):
+        if created:
+            if instance.is_lawyer == True:
+                Law.objects.create(user=instance)
+            else:
+                Profile.objects.create(user=instance)
 
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_lawyer_profile(sender, instance, created, **kwargs):
-    # if instance.is_lawyer:
-    if created:
-        Law.objects.create(user=instance)
-
-
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def save_lawyer_profile(sender, instance, **kwargs):
-    # if instance.is_lawyer:
-    instance.law.save()
+    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+    def save_lawyer_profile(sender, instance, **kwargs):
+        if instance.is_lawyer == True:
+            instance.law.save()
+        else:
+            instance.profile.save()
 
 
 class Articles(models.Model):
