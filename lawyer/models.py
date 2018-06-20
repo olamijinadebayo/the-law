@@ -11,21 +11,48 @@ from citizen.models import Profile,Citizen
 # Create your models here.
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
+# class Category(models.Model):
+#     # CRIMINAL = 'CR'
+#     # CORPORATE = 'CP'
+#     # FINANCIAL = 'FL'
+#     # ENTERTAINMENT ='ET'
+#     # FAMILY = 'FY'
+#     # ENVIRONMENTAL ='EL'
+#     # ADMIRALTY = 'AY'
+#     GENERAL = 'GN'
+#     LAW_CATEGORIES = (
+#         ('CL','Criminal'),
+#         ('CE','Corporate'),
+#         ('FL','Financial'),
+#         ('ET','Entertainment'),
+#         ('FY','Family'),
+#         ('EL','Enviromental'),
+#         ('AY','Admiralty'),
+#         (GENERAL,'General'),
+#     )
+#     name = models.CharField(max_length=2,choices = LAW_CATEGORIES,default=GENERAL,)
+#     def __str__(self):
+#         return self.name
 
 class Law(models.Model):
+    GENERAL = 'GN'
+    LAW_CATEGORIES = (
+        ('CL','Criminal'),
+        ('CE','Corporate'),
+        ('FL','Financial'),
+        ('ET','Entertainment'),
+        ('FY','Family'),
+        ('EL','Enviromental'),
+        ('AY','Admiralty'),
+        (GENERAL,'General'),
+    )
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE, )
     # avatar_thumbnail = ProcessedImageField(upload_to='avatars',processors=[ResizeToFill(100, 50)],format='JPEG', options={'quality': 60})
     avatar = models.ImageField(upload_to='avatar', blank=True)
     bio = models.TextField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.CharField(max_length=2,choices = LAW_CATEGORIES,default=GENERAL,)
 
     def __str__(self):
         return self.user.username
