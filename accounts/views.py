@@ -77,7 +77,7 @@ def login(request):
             if user.is_citizen == True:
                 return redirect('citizen:edit')
             else:
-                return redirect('accounts:lawyer')
+                return redirect('lawyer:lawyerprofile', user.law.id)
         else:
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
