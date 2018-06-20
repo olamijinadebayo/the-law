@@ -17,7 +17,8 @@ def lawyerdashboard(request):
 
 
 def lawyercases(request):
-    return render(request, 'law/viewcase.html')
+    cases = Post.objects.all()
+    return render(request, 'law/viewcase.html',{"cases":cases})
 
 
 def lawyerarticles(request):

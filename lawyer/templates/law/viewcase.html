@@ -1,161 +1,80 @@
-{% extends 'law/base.html' %}
-{% load staticfiles%}
-{% block content %}
-{% block styles %}
- {{block.super}}
- <link rel="stylesheet" href="{% static 'css/lawyer/viewcases.css'%}">
-{% endblock %}
+{% extends 'law/base.html' %} {% load staticfiles%} {% block content %} {% block styles %} {{block.super}}
+<link rel="stylesheet" href="{% static 'css/lawyer/viewcases.css'%}"> {% endblock %}
 <h1 class="text-center">Case</h1>
 
 <div class="container">
-<section class="criminal">
+  <section class="criminal">
     <div class="container">
       <h2>Criminal Case</h2>
       <div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title">Case Title 1</h5>
-        <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
-        <a href="#" class="btn btn-warning">More info</a>
+        {% for case in cases %}
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{case.case_number}}</h5>
+              <p class="card-text text-left">{{ case.case_description}}</p>
+              <p>{{ case.post_date}}</p>
+              <a href="#" class="btn btn-warning">More info</a>
+            </div>
+          </div>
+        </div>
+        {% endfor%}
+
       </div>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title">Case Title 2</h5>
-        <p class="card-text text-left">Place some text for the service 2 here. Place some text for the service 2 here. Place some text for the service 2 here.</p>
-        <a href="#" class="btn btn-warning">More info</a>
+  </section>
+  <section class="corporate">
+    <div class="container">
+      <h2>Corporate Case</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-body text-center">
+              <h5 class="card-title">Case Title 1</h5>
+              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <a href="#" class="btn btn-warning">More info</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title text-center">Case Title 3</h5>
-        <p class="card-text text-left">Place some text for the service 3 here. Place some text for the service 3 here. Place some text for the service 3 here.</p>
-        <a href="#" class="btn btn-warning text-right">More info</a>
-      </div>
-    </div>
-  </div>
-</div>
-    </div>
-</section>
-<section class="corporate">
-  <div class="container">
-    <h2>Corporate Case</h2>
-    <div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title">Case Title 1</h5>
-        <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
-        <a href="#" class="btn btn-warning">More info</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title">Case Title 2</h5>
-        <p class="card-text text-left">Place some text for the service 2 here. Place some text for the service 2 here. Place some text for the service 2 here.</p>
-        <a href="#" class="btn btn-warning">More info</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title text-center">Case Title 3</h5>
-        <p class="card-text text-left">Place some text for the service 3 here. Place some text for the service 3 here. Place some text for the service 3 here.</p>
-        <a href="#" class="btn btn-warning text-right">More info</a>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-<section class="tax">
+  </section>
+  <section class="tax">
     <div class="container">
       <h2>Tax Case</h2>
       <div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title">Case Title 1</h5>
-        <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
-        <a href="#" class="btn btn-warning">More info</a>
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-body text-center">
+              <h5 class="card-title">Case Title 1</h5>
+              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <a href="#" class="btn btn-warning">More info</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title">Case Title 2</h5>
-        <p class="card-text text-left">Place some text for the service 2 here. Place some text for the service 2 here. Place some text for the service 2 here.</p>
-        <a href="#" class="btn btn-warning">More info</a>
+  </section>
+  <section class="harass">
+    <div class="container">
+      <h2>Harrassment Case</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-body text-center">
+              <h5 class="card-title">Case Title 1</h5>
+              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <a href="#" class="btn btn-warning">More info</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title text-center">Case Title 3</h5>
-        <p class="card-text text-left">Place some text for the service 3 here. Place some text for the service 3 here. Place some text for the service 3 here.</p>
-        <a href="#" class="btn btn-warning text-right">More info</a>
-      </div>
-    </div>
-  </div>
-</div>
-    </div>
-</section>
-<section class="harass">
-  <div class="container">
-    <h2>Harrassment Case</h2>
-    <div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title">Case Title 1</h5>
-        <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
-        <a href="#" class="btn btn-warning">More info</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title">Case Title 2</h5>
-        <p class="card-text text-left">Place some text for the service 2 here. Place some text for the service 2 here. Place some text for the service 2 here.</p>
-        <a href="#" class="btn btn-warning">More info</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-    <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
-      <div class="card-body text-center">
-        <h5 class="card-title text-center">Case Title 3</h5>
-        <p class="card-text text-left">Place some text for the service 3 here. Place some text for the service 3 here. Place some text for the service 3 here.</p>
-        <a href="#" class="btn btn-warning text-right">More info</a>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
+  </section>
 </div>
 
 {% endblock %}
