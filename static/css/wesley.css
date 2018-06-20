@@ -273,8 +273,6 @@ footer {
 }
 
 footer p {
-  margin: 0;
-  padding: 0;
   font-size: 14px;
 }
 
@@ -444,8 +442,7 @@ footer {
 }
 footer ul {
   list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+  
 }
 
 .closure {
