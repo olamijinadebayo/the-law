@@ -1,0 +1,83 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="row">
+        <div id="side-bar" class="col-md-12"  style="margin-top:10vh">
+        <div class="col-sm-12">
+        <button id='btnLocate' class='btn btn-info btn-block'>whose near?.</button><br>
+        </div>
+
+        <div id="divCategory" class="col-md-12">
+                <div id="divCategoryLabel" class="text-center col-xs-12">
+                        <h4 id="lblCategory">Categories</h4>
+                </div>
+                <div id="divFilterCategory" class="col-xs-12">
+                        <div id="class" class="col-xs-4">
+                        <input type="radio" name='fltCategory' value='ALL' checked> All
+                        </div>
+                        <div id="class" class="col-xs-4">
+                        <input type="radio" name='fltCategory' value='criminal'>criminal
+                        </div>
+                        <div id="class" class="col-xs-4">
+                        <input type="radio" name='fltCategory' value='civil' >civil
+                        </div>
+
+                </div>
+                <div class="" id="divCategoryData"></div>
+        </div>
+        <div id="bufferRadius" class="col-xs-12">
+                        <div id="Label" class="text-center col-xs-12">
+                            <h4 id="lblBuffer">Query by radius</h4>
+                        </div>
+        
+                        <div id="divFindIncidence" class="form-group has-error">
+                        <div class="col-xs-6">
+                           <button id="geolocate" class="btn btn-primary btn-block">my location</button>
+                        </div>
+                            <div class="col-xs-3">
+                                <input type="text" id="latitude" class="form-control" placeholder="latitude">
+                            </div>
+                            <div class="col-xs-3">
+                                <input type="text" id="longitude" class="form-control" placeholder="longitude">
+                            </div>
+                            
+                            <div class="col-xs-6">
+                                <input type="text" id="bufferradius" class="form-control" placeholder="Buffer Radius in km">
+                            </div>
+                            <div class="col-xs-6">
+                                <button id="bufferbtn" class="btn btn-primary btn-block">Buffer</button>
+                            </div>
+        
+                        </div>
+                        <div class="" id="divIncidenceData"></div>
+                    </div>
+              
+     </div>
+
+     <div id="mapdiv" class="col-md-12"></div>
+     </div>
+     <div id="loading">
+        <div class="loading-indicator">
+                <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-info progress-bar-full"></div>
+                </div>
+        </div>
+        </div>
+<div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title text-primary" id="feature-title"></h4>
+        </div>
+        <div class="modal-body" id="feature-info"></div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+                  
+
+
+{% endblock %}
