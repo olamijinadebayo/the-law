@@ -28,6 +28,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ORIGIN_ALLOW_ALL =True
+# Application definition
+
 LOGIN_REDIRECT = '/'
 
 # Application definition
@@ -45,6 +48,11 @@ INSTALLED_APPS = [
     'ussd',
     'lawyer',
     'citizen',
+    'django.contrib.gis',
+    'leaflet',
+    'djgeojson',
+    'corsheaders',
+    'africastalking'
 ]
 
 MIDDLEWARE = [
@@ -83,7 +91,7 @@ WSGI_APPLICATION = 'law.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
@@ -110,6 +118,15 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (-0.235, 35.7568),
+    'DEFAULT_ZOOM': 14,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 18,
+    'TILES': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+}
 
 
 # Internationalization
