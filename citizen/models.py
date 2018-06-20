@@ -51,7 +51,7 @@ class Post(models.Model):
     case_number = models.CharField(max_length=12)
     case_description = models.TextField()
     post_date = models.DateTimeField(auto_now_add=True)
-    citizen = models.ForeignKey(settings.AUTH_USER_MODEL,
+    citizen = models.ForeignKey(Profile,
                                 on_delete=models.CASCADE)
 
     def __str__(self):
