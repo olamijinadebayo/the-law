@@ -11,6 +11,10 @@ urlpatterns = [
     url(r'cases/', views.lawyercases, name='lawyercases'),
     url(r'new/article', views.newarticle, name='newarticle'),
     url(r'change_lawyerProfile/(\d+)$', views.change_lawyerProfile, name='change_lawyerProfile'),
+    url(r'^lawyer_form', views.lawyer_form, name='lawyer_form'),
+    url(r'^portal', views.portal, name='portal'),
+    url(r'^data$', views.reported, name='lawyers'),
+    
 
 ]
 if settings.DEBUG:
