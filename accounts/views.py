@@ -2,19 +2,22 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CitizenSignUpForm, LawyerSignUpForm
 from citizen.models import Citizen
-from lawyer.models import Lawyer
+from lawyer.models import Lawyer,Law
 from django.contrib.auth import login as dj_login, authenticate, logout as dj_logout
 from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required(login_url='/accounts/login/')
 def citizen(request):
     return render(request, 'citizen.html')
 
-
+@login_required(login_url='/accounts/login/')
 def lawyer(request):
+    # current_profile = Law.objects.get(id=profile_id)
     return render(request, 'lawyer.html')
+    # return render(request, 'law/lawyerprofile.html', {"current_profile": current_profile})
 
 
 def citizensignup(request):
@@ -31,10 +34,11 @@ def citizensignup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             dj_login(request, user)
-        return redirect(citizen)
+        return render(request, 'login.html')
+        # return redirect(citizen)
     else:
         form = CitizenSignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'accounts/signup.html', {'form': form})
 
 
 def lawyer_signup(request):
@@ -47,28 +51,33 @@ def lawyer_signup(request):
             lawyer = Lawyer.objects.create(user=user)
             lawyer.refresh_from_db()
             lawyer.location = form.cleaned_data.get('location')
+
+            # user.lawyer_profile.location = form.cleaned_data.get('location')
+            # user.lawyer_profile.save()
+
             lawyer.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             dj_login(request, user)
-        return render(request, 'lawyer.html')
+        # return render(request, 'login.html')
+        return redirect('accounts:lawyer')
     else:
         form = LawyerSignUpForm()
     return render(request, 'lawyer_signup.html', {'form': form})
 
 
 def login(request):
-    if request.GET.get('username') and request.GET.get("password"):
-        username = request.GET.get("username")
-        password = request.GET.get("password")
+    if request.POST.get('username') and request.POST.get("password"):
+        username = request.POST.get("username")
+        password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
         if user is not None:
             dj_login(request, user)
             if user.is_citizen == True:
-                return render(request, 'citizen.html')
+                return redirect('citizen:edit')
             else:
-                return render(request, 'lawyer.html')
+                return redirect('accounts:lawyer')
         else:
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
@@ -81,4 +90,4 @@ def loginpage(request):
 
 def logout(request):
     dj_logout(request)
-    return redirect('loginpage')
+    return redirect('accounts:loginpage')

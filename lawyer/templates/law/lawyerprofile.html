@@ -1,32 +1,36 @@
-{%extends 'law/base.html'%} 
-{%block content%}
-<div class="container" style="padding-top:90px;">
-    <div class="row">
-        <div class="col-md-6">
-            hhuh
-
-
-            <div class="profile">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            hello lawyer profile today
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-5">
-                        Blah blah blah
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+{%extends 'law/base.html'%}
+{% load static %}
+ {% load bootstrap4%}
+  {% block styles %}
+   {{block.super}}
+<link rel="stylesheet" href="{% static 'css/lawyer/profile.css'%}">
+{% endblock %}
+{% block content %}
+<div class="card">
+  {% if current_profile.user.id == request.user.id%}
+    <a class="edit" href="{% url 'lawyer:edit'%}"><span><i class="float-right fa fa-edit fa-2x"></i></span></a>
+  {% endif%}
+  {% if current_profile.avatar%}
+  <img src="{{ current_profile.avatar.url}}" class="text-center rounded-circle profile" alt="avatar">
+  {% endif %}
+  <h1><span class="bold">{{ current_profile.user.first_name }} {{ current_profile.user.last_name}}</span></h1>
+  {# <p class="bold"> username:{{current_profile.user.username}}</p> #}
+  <p>category:  {{ current_profile.category}}</p>
+  <p>Bio:{{ current_profile.bio}}</p>
+  <p>Location:{{ current_profile.location}}</p>
+  <div style="margin: 24px 0;">
+   <a href="#"><i class="fa fa-twitter"></i></a>
+   <a href="#"><i class="fa fa-linkedin"></i></a>
+   <a href="#"><i class="fa fa-facebook"></i></a>
 </div>
-{%endblock%}
+<p><button>Contact</button></p>
+</div>
+<br><br>
+
+
+<div class="container">
+  <h4 class="text-center">Articles</h4>
+
+</div>
+</div>
+{% endblock %}

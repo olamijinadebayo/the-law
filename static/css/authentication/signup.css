@@ -1,9 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster);
-/* body{
-    /* background-color: blue; */
-} */
+body{
+    padding: 30px;
+    background-image: url(/static/images/backl.jpg);
+    background-size: cover;
+}
 .no-space{
-    padding: 0 !important;
+    padding: 0px !important;
+    margin-bottom: 0px;
+    /* margin:  0px !important; */
     height: 80vh;
 }
 .left{
@@ -14,9 +18,11 @@
     color: white;
     font-weight: bold;
     font-family: 'Lobster', cursive;
+    height: 100%;
+    
 }
 .right{
-    /* background-color: red; */
+    /* background-color: rgb(86, 187, 173); */
     padding: 80px;
     
 }
@@ -33,7 +39,7 @@
     font-weight: bold;
 }
 input:focus{
-    background-color: yellow !important;
-    color:black;
+    background-color: rgb(231, 234, 236) !important;
+    color:white;
     font-weight: bold;
 }

@@ -1,15 +1,18 @@
 from django.conf.urls import url
+# from django.contrib.auth.views import view as auth_view
 from . import views
 from django.conf import settings
-
+from django.conf.urls.static import static
 app_name = 'accounts'
 
 urlpatterns = [
     url(r'^citizen/$', views.citizen, name='citizen'),
     url(r'^lawyer/$', views.lawyer, name='lawyer'),
     url(r'^loginpage/$', views.loginpage, name='loginpage'),
-    url(r'^login/$', views.login, name='login'),
+    url(r'^login/', views.login, name='login'),
     url(r'^logout/$', views.logout, name='logout'),
-    url(r'^citizen/signup/$', views.citizensignup, name='citizen'),
-    url(r'^lawyer/signup/$', views.lawyer_signup, name='lawyer'),
+    url(r'^citizen/signup/$', views.citizensignup, name='citizenSignup'),
+    url(r'^lawyer/signup/$', views.lawyer_signup, name='lawyerSignup'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
