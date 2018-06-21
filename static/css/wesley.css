@@ -349,6 +349,9 @@ footer p {
   background: url('../images/landing.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'IM Fell English SC', serif;
+  font-weight: 1000;
+  font-size: 18px;
 }
 
 .scream {
@@ -426,7 +429,7 @@ footer p {
   color: #ffffff;
 }
 .claim--contents h1 {
-  font-size: 50px;
+  font-size: 72px;
   font-weight: bold;
   letter-spacing: -.04em;
   color: #fff;
