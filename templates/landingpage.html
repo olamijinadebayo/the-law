@@ -6,14 +6,14 @@
                     
             <div class="claim">
                 <div class="claim--contents">
-                    <h1>De Law... </h1>
-                    <p class="scream">Providing Legal advice and where to get lawyers. <br>
-                        Find and talk to advocates and lawyers at the go from this here website.
-                        Easily join our ever expanding community of legal advisors and be in the know
+                    <h1>The Law </h1>
+                    <p class="scream">
+                        Find and talk to advocates and lawyers at the go.<br>
+                        Easily join our ever expanding community of legal advisors and be in the know about legal issues and your rights
                         </p>
                     <p>
-                        <a href="{% url 'accounts:citizenSignup' %}" class="button button-wesley button-pill button-giant">Citizen</a>
-                        <a href="{%url 'accounts:lawyerSignup' %}" class="button button-wesley button-pill button-giant">Lawyer</a>
+                        <a href="{% url 'accounts:citizenSignup' %}" class="button button-wesley button-pill button-giant">Citizen Signup</a>
+                        <a href="{%url 'accounts:lawyerSignup' %}" class="button button-wesley button-pill button-giant">Lawyer Signup</a>
 
                     </p>
                 </div>
@@ -66,13 +66,9 @@
             <div class="claim">
                 <div class="claim--contents" id="other-picture">
                     <h1>One on One Personal Time with lawyers</h1>
-                    <h2> We make your legal matters our business and provide information out there for all to see and use</h2>
-                    <p>
-                        We provide an onsite messaging platform that incorporates the citizens signed in and the lawyers signed in to have a safe space to speak on legal matters that affects the users
-                        The application is secure and messages are encrypted using end to end encryption to ensure privacy on matters concerning your legal cases since we value user privacy
-
-                    </p>
-                        <a href="#go2" class="button button-wesley button-pill button-giant">See the Lawyers</a>
+                    <h2 > We make your legal matters our business and provide information out there for all to see and use</h2>
+                    
+                        <a href="{% url 'accounts:citizenSignup' %}" class="button button-wesley button-pill button-giant">See the Lawyers</a>
                 </div>
             </div>
             

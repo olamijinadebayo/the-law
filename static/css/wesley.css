@@ -346,12 +346,15 @@ footer p {
 }
 
 .claim {
-  background: url('../images/landing.jpg');
+  background:  linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url('../images/landing.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'IM Fell English SC', serif;
   font-weight: 1000;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .scream {
@@ -427,9 +430,11 @@ footer p {
   padding: 2vh 2vw;
   text-align: center;
   color: #ffffff;
+  font-weight: bold;
+  font-size: 20px;
 }
 .claim--contents h1 {
-  font-size: 72px;
+  font-size: px;
   font-weight: bold;
   letter-spacing: -.04em;
   color: #fff;
@@ -516,7 +521,14 @@ p {
   padding: 0;
 }
 #other-picture{
-  background: url('../images/otherpicture.jpg');
+  background:  linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url('../images/otherpicture.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  
+}
+#color-change{
+  color: #1E233F;
 }
