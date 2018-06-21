@@ -1,6 +1,6 @@
 __pycache__/
 *.pyc
-.env
+.env/
 migrations/
 db.sqlite3
 virtual/
