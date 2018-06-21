@@ -19,10 +19,10 @@ def africastalking(request):
         service_code = request.POST.get('serviceCode', None)
         phone_number = request.POST.get('phoneNumber', None)
         text = request.POST.get('text', None)
-        url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
-        response = :""
+        # url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
+        response = ""
         print(session_id)
-        
+
 
 
         if text == "":
