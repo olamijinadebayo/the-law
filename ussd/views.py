@@ -12,76 +12,92 @@ serviceCode='*384*09876#'
 
 @csrf_exempt
 def africastalking(request):
-    africastalking.initializing(username,api_key)
-    ussd = africastalking.USSD
-    if request.method == 'POST':
-        session_id = request.POST.get('sessionId', None)
-        service_code = request.POST.get('serviceCode', None)
-        phone_number = request.POST.get('phoneNumber', None)
-        text = request.POST.get('text', None)
-        url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
-        response = self.sendRequest(url, parameters)
-        print(session_id)
-        texttoarray     = text.split('*')
-        userResponse    = texttoarray[-1]
+    # africastalking.initializing(username,api_key)
+    # ussd = africastalking.USSD
+    # if request.method == 'POST':
+    #     session_id = request.POST.get('sessionId', None)
+    #     service_code = request.POST.get('serviceCode', None)
+    #     phone_number = request.POST.get('phoneNumber', None)
+    #     text = request.POST.get('text', None)
+    #     url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
+    #     response = self.sendRequest(url, parameters)
+    #     print(session_id)
+    #     texttoarray     = text.split('*')
+    #     userResponse    = texttoarray[-1]
     
+
+    #     if text == "":
+    #         menu_text = "CON Welcome to De Law, Kindly choose an option:\n"
+    #         menu_text += "1. Get Lawyer\n"
+    #         menu_text += "2. Choose your price\n"
+      
+    #     elif text =="1":
+    #         menu_text = "CON Choose the type of lawyer you want to talk to \n"
+    #         menu_text += "1. Criminal law\n"
+    #         menu_text += "2. Family Law\n"
+    #         menu_text += "3. Co-orperate Law \n" 
+    #         menu_text += "4. Civil rights Law \n"
+    #         menu_text += "5. Labor Law  \n"
+
+
+    #     elif text =="2":
+    #         menu_text = "CON Please enter an amount"
+                
+    #     elif text =="1*1":
+            
+    #         time.sleep(2)
+            
+    #     elif text =="1*2":
+    #         menu_text = "CON Select a lawyer"
+        
+    #     elif text =="1*3":
+    #         menu_text = "CON Choose one of the following lawyers"
+    #         menu_text += "1. Wesley Mutwiri\n"
+    #         menu_text += "2. Peter Muturi\n"
+    #         menu_text += "3. Risper Kemmy\n"
+    #         menu_text += "4. Olamijin\n"
+
+    #         time.sleep(2)
+
+    #     elif text =="1*4":
+    #         menu_text = "CON Choose one of the following lawyers"
+    #         menu_text += "1. Wesley Mutwiri\n"
+    #         menu_text += "2. Peter Muturi\n"
+    #         menu_text += "3. Risper Kemmy\n"
+    #         menu_text += "4. Olamijin\n"
+
+    #         time.sleep(2)
+        
+    #     elif text =="1*5":
+    #         menu_text = "CON Choose one of the following lawyers"
+    #         menu_text += "1. Wesley Mutwiri\n"
+    #         menu_text += "2. Peter Muturi\n"
+    #         menu_text += "3. Risper Kemmy\n"
+    #         menu_text += "4. Olamijin\n"
+
+    #         time.sleep(2)
+
+    #     elif text =="2*"+userResponse:
+    #         client.publish("amaina/amount",userResponse)
+    #         client.subscribe("amaina/amount")
+    #         time.sleep(2)
+    #         menu_text = "END Thank-you"
+
+    # return HttpResponse(response)
+    if request.method == 'POST':
+        session_id = request.POST.get('sessionId')
+        service_code = request.POST.get('serviceCode')
+        phone_number = request.POST.get('phoneNumber')
+        text = request.POST.get('text')
+
+        response = ""
 
         if text == "":
-            menu_text = "CON Welcome to De Law, Kindly choose an option:\n"
-            menu_text += "1. Get Lawyer\n"
-            menu_text += "2. Choose your price\n"
-      
-        elif text =="1":
-            menu_text = "CON Choose the type of lawyer you want to talk to \n"
-            menu_text += "1. Criminal law\n"
-            menu_text += "2. Family Law\n"
-            menu_text += "3. Co-orperate Law \n" 
-            menu_text += "4. Civil rights Law \n"
-            menu_text += "5. Labor Law  \n"
+            response = "CON What would you want to check \n"
+            # response .= "1. My Account \n"
+            response += "1. My Phone Number"
 
+        elif text == "1":
+            response = "END My Phone number is {0}".format(phone_number)
 
-        elif text =="2":
-            menu_text = "CON Please enter an amount"
-                
-        elif text =="1*1":
-            
-            time.sleep(2)
-            
-        elif text =="1*2":
-            menu_text = "CON Select a lawyer"
-        
-        elif text =="1*3":
-            menu_text = "CON Choose one of the following lawyers"
-            menu_text += "1. Wesley Mutwiri\n"
-            menu_text += "2. Peter Muturi\n"
-            menu_text += "3. Risper Kemmy\n"
-            menu_text += "4. Olamijin\n"
-
-            time.sleep(2)
-
-        elif text =="1*4":
-            menu_text = "CON Choose one of the following lawyers"
-            menu_text += "1. Wesley Mutwiri\n"
-            menu_text += "2. Peter Muturi\n"
-            menu_text += "3. Risper Kemmy\n"
-            menu_text += "4. Olamijin\n"
-
-            time.sleep(2)
-        
-        elif text =="1*5":
-            menu_text = "CON Choose one of the following lawyers"
-            menu_text += "1. Wesley Mutwiri\n"
-            menu_text += "2. Peter Muturi\n"
-            menu_text += "3. Risper Kemmy\n"
-            menu_text += "4. Olamijin\n"
-
-            time.sleep(2)
-
-        elif text =="2*"+userResponse:
-            client.publish("amaina/amount",userResponse)
-            client.subscribe("amaina/amount")
-            time.sleep(2)
-            menu_text = "END Thank-you"
-
-    return HttpResponse(response)
-    
+        return HttpResponse(response)
