@@ -20,10 +20,9 @@ def africastalking(request):
         phone_number = request.POST.get('phoneNumber', None)
         text = request.POST.get('text', None)
         url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
-        response = self.sendRequest(url, parameters)
+        response = :""
         print(session_id)
-        texttoarray     = text.split('*')
-        userResponse    = texttoarray[-1]
+        
 
 
         if text == "":
