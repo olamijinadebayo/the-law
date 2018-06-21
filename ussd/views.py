@@ -74,7 +74,7 @@ def africastalking(request):
             menu_text += "1. Wesley Mutwiri\n"
             menu_text += "2. Peter Muturi\n"
             menu_text += "3. Risper Kemmy\n"
-            menu_text += "4. Olamijin\n"
+            # menu_text += "4. Olamijin\n"
 
             time.sleep(2)
 
