@@ -512,3 +512,8 @@ p {
   margin: 0;
   padding: 0;
 }
+#other-picture{
+  background: url('../images/otherpicture.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
