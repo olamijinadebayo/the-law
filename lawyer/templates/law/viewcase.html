@@ -1,38 +1,81 @@
-{% extends 'law/base.html' %} {% block content %} 
-<h1 class="text-center"></h1>
-
+{% extends 'law/base.html' %} {% load staticfiles%} {% block content %} {% block styles %} {{block.super}}
+<link rel="stylesheet" href="{% static 'css/lawyer/viewcases.css'%}"> {% endblock %}
+<h1 class="text-center">Case</h1>
 
 <div class="container">
-</div>
-<div class="container">
-    <div class="row">
-
-{%for case in case%}       
-        <div class="col-md-6 ">
-            <center>
-                <div class="card">
-                   
-                    <div class="card-body">
-
-                 This is a sample case bwoy
-
-
-                        <div class="card-footer">
-                            <button>Take case</button>
-                        </div>
-                    </div>
-                </div>
-            </center>
-
-        {% empty %}
-
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h1>Sorry, There are no cases to display... Try again later</h1>
-
+  <section class="criminal">
+    <div class="container">
+      <h2>Criminal Case</h2>
+      <div class="row">
+        {% for case in cases %}
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{case.case_number}}</h5>
+              <p class="card-text text-left">{{ case.case_description}}</p>
+              <p>{{ case.post_date}}</p>
+              <p>{{case.case_category}}</p>
+              <a href="#" class="btn btn-warning">More info</a>
+            </div>
+          </div>
         </div>
-{%endfor%}
+        {% endfor%}
+
+      </div>
     </div>
+  </section>
+  <section class="corporate">
+    <div class="container">
+      <h2>Corporate Case</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-body text-center">
+              <h5 class="card-title">Case Title 1</h5>
+              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <a href="#" class="btn btn-warning">More info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="tax">
+    <div class="container">
+      <h2>Tax Case</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-body text-center">
+              <h5 class="card-title">Case Title 1</h5>
+              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <a href="#" class="btn btn-warning">More info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="harass">
+    <div class="container">
+      <h2>Harrassment Case</h2>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-body text-center">
+              <h5 class="card-title">Case Title 1</h5>
+              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <a href="#" class="btn btn-warning">More info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
-</div>
-</div>
+
 {% endblock %}

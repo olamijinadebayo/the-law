@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect,reverse
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.db import transaction
@@ -9,23 +9,25 @@ from lawyer.models import Lawyer
 from .models import Post
 
 # Create your views here.
+
+
 @login_required
 def home(request):
     if request.user.is_citizen == True:
         user_id = request.user.id
         posts = Post.objects.filter(citizen_id=user_id)
-        return render(request, 'citizen/home.html',{'posts': posts})
+        return render(request, 'citizen/home.html', {'posts': posts})
     else:
         return redirect('accounts:citizenSignup')
+
 
 @login_required
 def advocates(request):
     if request.user.is_citizen == True:
         advocates = Lawyer.objects.all()
-        return render(request, 'citizen/advocates.html', {'advocates':advocates})
+        return render(request, 'citizen/advocates.html', {'advocates': advocates})
     else:
         return redirect('accounts:citizenSignup')
-
 
 
 @login_required()
@@ -34,9 +36,9 @@ def post(request):
         if request.method == 'POST':
             form = PostForm(request.POST)
             if form.is_valid():
-                post=form.save(commit=False)
+                post = form.save(commit=False)
                 post.citizen = request.user
-                form.save() 
+                form.save()
                 return redirect('citizen:edit')
         else:
             form = PostForm()
