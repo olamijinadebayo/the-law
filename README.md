@@ -23,10 +23,13 @@ $ git clone
 
 # create a new virtual folder on your machine
 $ python3.6 -m venv virtual
+
 # Enter into the virtual file
 $ source virtual/bin/activate
+
 # install requirements needed by the file
 $ pip install -r requirements.txt
+
 # setup a newDjango application
 # get the secret_key from the application, create a file called .env and place it as such SECRET_KEY=''
 
