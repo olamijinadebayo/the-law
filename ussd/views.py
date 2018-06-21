@@ -10,6 +10,8 @@ phoneNumber='+254724629599'
 url='https://de-law.herokuapp.com/USSD'
 serviceCode='*384*23519#'
 
+africastalking.initializing(username,api_key)
+ussd = africastalking.USSD
 @csrf_exempt
 def africastalking(request):
     # africastalking.initializing(username,api_key)
