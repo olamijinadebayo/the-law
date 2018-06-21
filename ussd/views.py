@@ -82,4 +82,4 @@ def africastalking(request):
             time.sleep(2)
             menu_text = "END Thank-you"
 
-    return HttpResponse(response)
+        return HttpResponse(response)
