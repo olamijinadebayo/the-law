@@ -13,7 +13,7 @@ serviceCode='*384*23519#'
 @csrf_exempt
 def africastalking(request):
     # africastalking.initializing(username,api_key)
-    ussd = africastalking.USSD
+    # ussd = africastalking.USSD
     if request.method == 'POST':
         session_id = request.POST.get('sessionId', None)
         service_code = request.POST.get('serviceCode', None)
