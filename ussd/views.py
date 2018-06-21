@@ -8,7 +8,7 @@ api_key='a98885a5b35185f219cd35263a9a3a7db9196f24a9df7e12a740a9eec53741d4'
 username='sandbox'
 phoneNumber='+254724629599'
 url='https://de-law.herokuapp.com/USSD'
-serviceCode='*384*09876#'
+serviceCode='*384*23519#'
 
 @csrf_exempt
 def africastalking(request):
