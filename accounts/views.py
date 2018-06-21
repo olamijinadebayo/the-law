@@ -63,6 +63,7 @@ def lawyer_signup(request):
     return render(request, 'lawyer_signup.html', {'form': form})
 
 
+
 def login(request):
     if request.POST.get('username') and request.POST.get("password"):
         username = request.POST.get("username")
@@ -73,7 +74,7 @@ def login(request):
             if user.is_citizen == True:
                 return redirect('citizen:edit')
             else:
-                return render(request, 'lawyer.html')
+                return render(request, 'lawyer:lawyerdashboard')
         else:
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:

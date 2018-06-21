@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Pangolin" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="{%static 'css/lawyer.css'%}"> {% endblock %}
+    <link rel="stylesheet" href="{%static 'css/lawyers/index.css'%}"> {% endblock %}
 
 </head>
 
 <body>
-    {%include 'navbar.html'%} {%block content%} {% endblock %} {% block scripts %}
+    {%include './navbar.html'%} {%block content%} {% endblock %} {% block scripts %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {% bootstrap_javascript %} {% endblock %}
