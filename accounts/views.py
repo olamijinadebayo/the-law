@@ -61,7 +61,7 @@ def lawyer_signup(request):
             user = authenticate(username=username, password=raw_password)
             dj_login(request, user)
         # return render(request, 'login.html')
-        return redirect('accounts:lawyerprofile',user.law.id)
+        return redirect('lawyer:lawyerprofile',user.law.id)
     else:
         form = LawyerSignUpForm()
     return render(request, 'lawyer_signup.html', {'form': form})
