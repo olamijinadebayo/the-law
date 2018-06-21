@@ -1,11 +1,11 @@
 
-<!DOCTYPE html>
+{%extends 'law/base.html'%}
 {% load bootstrap4 %}
 {% block content%}
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <h2>{{ user.get_full_name }}</h2>
+            <div class="col-md-3">
+                <h2 id="full-name">{{ user.get_full_name }}</h2>
                 <ul>
                     <li>Username: {{ user.username }}</li>
                     <li>Location: {{ user.location }}</li>
@@ -13,11 +13,12 @@
 
                 </ul>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8" id="edit-profile">
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% bootstrap_form profile_form layout="inline" %}
-                    <button class="btn btn-outline-primary">Save</button>
+                <input type="submit" class="btn btn-primary" value="post">
+
                 </form>
             </div>
         </div>
