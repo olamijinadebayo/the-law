@@ -273,8 +273,6 @@ footer {
 }
 
 footer p {
-  margin: 0;
-  padding: 0;
   font-size: 14px;
 }
 
@@ -346,9 +344,15 @@ footer p {
 }
 
 .claim {
-  background: url('http://ummeed.in/wp-content/uploads/2016/10/law-wallpapers-hd-1080p-1920x1080-desktop-02-800x445.jpg');
+  background:  linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url('../images/landing.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'IM Fell English SC', serif;
+  font-weight: 1000;
+  font-size: 20px;
 }
 
 .scream {
@@ -424,9 +428,11 @@ footer p {
   padding: 2vh 2vw;
   text-align: center;
   color: #ffffff;
+  font-weight: bold;
+  font-size: 20px;
 }
 .claim--contents h1 {
-  font-size: 50px;
+  font-size: px;
   font-weight: bold;
   letter-spacing: -.04em;
   color: #fff;
@@ -444,8 +450,7 @@ footer {
 }
 footer ul {
   list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+  
 }
 
 .closure {
@@ -511,4 +516,16 @@ footer {
 p {
   margin: 0;
   padding: 0;
+}
+#other-picture{
+  background:  linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url('../images/otherpicture.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+#color-change{
+  color: #1E233F;
 }

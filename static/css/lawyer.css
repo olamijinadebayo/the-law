@@ -1,12 +1,63 @@
-body {
-  
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.4;
-  
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+
+  font-family: 'Bree Serif', serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+}
 h1 {
   font-family: 'Bungee', cursive;
+}
+
+div#carouselExampleIndicators{
+  height: 500px;
+  width: 100%;
+}
+
+
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+  line-height: 21px;
+  background: #fff;
+  line-height: 1.55;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  line-height: normal;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+#edit-profile {
+  padding-top: 100px;
+}
+li {
+  list-style: none;
+}
+#full-name {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'IM Fell English SC', serif;
+}
+section{
+  padding: 20px;
 }
