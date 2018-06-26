@@ -65,6 +65,11 @@ Contact us on either of our github accounts: <br>
 <https://github.com/olamijinadebayo> <br>
 <https://github.com/rkemmy> <br>
 
+### live site link
+<https://de-law.herokuapp.com/>
 
+### license
+
+<https://daneden.github.io/animate.css/>
 
 copyright (c) 2018 The Law
