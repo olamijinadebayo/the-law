@@ -7,24 +7,21 @@ import africastalking
 api_key='a98885a5b35185f219cd35263a9a3a7db9196f24a9df7e12a740a9eec53741d4'
 username='sandbox'
 phoneNumber='+254724629599'
-url='https://de-law.herokuapp.com/USSD'
+url='https://de-law.herokuapp.com/'
 serviceCode='*384*23519#'
 
 @csrf_exempt
-def africastalking(request):
+def index(request):
     # africastalking.initializing(username,api_key)
     # ussd = africastalking.USSD
-    # if request.method == 'POST':
-    #     session_id = request.POST.get('sessionId', None)
-    #     service_code = request.POST.get('serviceCode', None)
-    #     phone_number = request.POST.get('phoneNumber', None)
-    #     text = request.POST.get('text', None)
-    #     url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
-    #     response = self.sendRequest(url, parameters)
-    #     print(session_id)
-    #     texttoarray     = text.split('*')
-    #     userResponse    = texttoarray[-1]
-    
+    response = ""
+    if request.method == 'POST':
+        session_id = request.POST.get('sessionId', None)
+        service_code = request.POST.get('serviceCode', None)
+        phone_number = request.POST.get('phoneNumber', None)
+        text = request.POST.get('text', None)
+        print(session_id)
+        
 
     #     if text == "":
     #         menu_text = "CON Welcome to De Law, Kindly choose an option:\n"

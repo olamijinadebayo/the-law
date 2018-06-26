@@ -27,8 +27,7 @@ urlpatterns = [
     url(r'^lawyer/', include('lawyer.urls')),
     url(r'^citizen/', include('citizen.urls')),
     url(r'^accounts/', include('accounts.urls')),
-    url(r'^USSD/', include('ussd.urls')),
-
+    url(r'^USSD/', include ('ussd.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
