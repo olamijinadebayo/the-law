@@ -59,11 +59,11 @@ There are currently no known bugs experienced on the website but feedback on bug
 * Postgis
 
 ## Support and contact details
-Contact us on either of our github accounts
-<https://github.com/wesleymutwiri>
-<https://github.com/muturi254>
-<https://github.com/olamijinadebayo>
-<https://github.com/rkemmy>
+Contact us on either of our github accounts: <br>
+<https://github.com/wesleymutwiri> <br>
+<https://github.com/muturi254> <br>
+<https://github.com/olamijinadebayo> <br>
+<https://github.com/rkemmy> <br>
 
 
 
