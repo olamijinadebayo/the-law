@@ -1,4 +1,4 @@
-# Kilogram
+# The Law
 
 ## By **Wesley Mutwiri, Olamijin Adebayo, Risper Kemmy, Peter Muturi**
 
@@ -19,7 +19,7 @@ This is an online web application that aims at connecting lawyers and advocates 
 7. Other alternative:
 ``` bash
 # clone into repository
-$ git clone
+$ git clone 
 
 # create a new virtual folder on your machine
 $ python3.6 -m venv virtual
