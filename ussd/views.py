@@ -13,17 +13,15 @@ serviceCode='*384*23519#'
 @csrf_exempt
 def index(request):
     # africastalking.initializing(username,api_key)
-    ussd = africastalking.USSD
+    # ussd = africastalking.USSD
+    response = ""
     if request.method == 'POST':
         session_id = request.POST.get('sessionId', None)
         service_code = request.POST.get('serviceCode', None)
         phone_number = request.POST.get('phoneNumber', None)
         text = request.POST.get('text', None)
-        url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
         print(session_id)
-        texttoarray     = text.split('*')
-        userResponse    = texttoarray[-1]
-        response = ""
+        
 
         if text == "":
             menu_text = "CON Welcome to De Law, Kindly choose an option:\n"
@@ -82,5 +80,5 @@ def index(request):
             time.sleep(2)
             menu_text = "END Thank-you"
 
-        return HttpResponse(response)
+    return HttpResponse(response)
     
