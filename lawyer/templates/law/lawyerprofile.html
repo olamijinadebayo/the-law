@@ -13,7 +13,7 @@
   {% if current_profile.avatar%}
   <img src="{{ current_profile.avatar.url}}" class="text-center rounded-circle profile" alt="avatar">
   {% endif %}
-  <h1><span class="bold">{{ current_profile.user.first_name }} {{ current_profile.user.last_name}}</span></h1>
+  <h1><span class="bold">{{ current_profile.user.lawyer_profile.first_name }} {{ current_profile.user.lawyer_profile.last_name}}</span></h1>
   {# <p class="bold"> username:{{current_profile.user.username}}</p> #}
   <p>category:  {{ current_profile.category}}</p>
   <p>Bio:{{ current_profile.bio}}</p>

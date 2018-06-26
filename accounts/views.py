@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CitizenSignUpForm, LawyerSignUpForm
 from citizen.models import Citizen
-from lawyer.models import Lawyer,Law
+from lawyer.models import Lawyer
 from django.contrib.auth import login as dj_login, authenticate, logout as dj_logout
 from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
@@ -45,23 +45,22 @@ def lawyer_signup(request):
     if request.method == 'POST':
         form = LawyerSignUpForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
+            user = form.save(commit = False)
             user.is_lawyer = True
             user.save()
-            lawyer = Lawyer.objects.create(user=user)
-            lawyer.refresh_from_db()
-            lawyer.location = form.cleaned_data.get('location')
-
-            # user.lawyer_profile.location = form.cleaned_data.get('location')
-            # user.lawyer_profile.save()
-
-            lawyer.save()
+            user.refresh_from_db()
+            user.lawyer_profile.first_name = form.cleaned_data.get('first_name')
+            # lawyer = Lawyer.objects.create(user=user)
+            # lawyer.refresh_from_db()
+            # lawyer.location = form.cleaned_data.get('location')
+            # lawyer.save()
+            user.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             dj_login(request, user)
         # return render(request, 'login.html')
-        return redirect('lawyer:lawyerprofile',user.law.id)
+            return redirect('lawyer:lawyerprofile',user.lawyer_profile.id)
     else:
         form = LawyerSignUpForm()
     return render(request, 'lawyer_signup.html', {'form': form})
@@ -77,7 +76,7 @@ def login(request):
             if user.is_citizen == True:
                 return redirect('citizen:edit')
             else:
-                return redirect('lawyer:lawyerprofile', user.law.id)
+                return redirect('lawyer:lawyerprofile', user.lawyer_profile.id)
         else:
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:

@@ -1,14 +1,14 @@
 from django import forms
-from .models import Articles, Lawyer, Law
+from .models import Articles, Lawyer
 
 
 class NewArticleForm(forms.ModelForm):
     class Meta:
         model = Articles
-        exclude = ['time', 'lawyer']
+        exclude = ['time', 'lawyer',]
 
 
 class ProfileForm(forms.ModelForm):
     class Meta:
-        model = Law
-        exclude = ['user']
+        model = Lawyer
+        exclude = ['user',]

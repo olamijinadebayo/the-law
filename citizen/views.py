@@ -56,7 +56,7 @@ def profile_edit(request):
     if request.user.is_citizen == True:
         if request.method == 'POST':
             profile_form = ProfileForm(
-                request.POST, request.FILES, instance=request.user.profile)
+                request.POST, request.FILES, instance=request.user.citizen_info)
             if profile_form.is_valid():
                 profile_form.save()
                 # messages.success(request, _(
@@ -65,7 +65,7 @@ def profile_edit(request):
             else:
                 messages.error(request, ('Please correct the error below.'))
         else:
-            profile_form = ProfileForm(instance=request.user.profile)
+            profile_form = ProfileForm(instance=request.user.citizen_info)
         return render(request, 'citizen/edit-profile.html', {"profile_form": profile_form})
     else:
         return redirect('accounts:citizenSignup')
