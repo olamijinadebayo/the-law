@@ -142,3 +142,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = '/accounts/loginpage/'
 LOGIN_REDIRECT_URL = '/citizen/profile/'
+APPEND_SLASH=False
