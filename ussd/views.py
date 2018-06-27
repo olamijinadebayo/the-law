@@ -11,17 +11,17 @@ url='https://de-law.herokuapp.com/USSD/'
 serviceCode='*384*23519#'
 
 # africastalking.initializing(username,api_key)
-ussd = africastalking.USSD
+# ussd = africastalking.USSD
 @csrf_exempt
 def africastalking(request):
     # africastalking.initializing(username,api_key)
     # ussd = africastalking.USSD
-    response = ""
-    if request.method == 'POST':
-        session_id = request.POST.get('sessionId', None)
-        service_code = request.POST.get('serviceCode', None)
-        phone_number = request.POST.get('phoneNumber', None)
-        text = request.POST.get('text', None)
+    menu_text = ""
+    if request.method == 'POST' :
+        session_id = request.POST.get('sessionId')
+        service_code = request.POST.get('serviceCode')
+        phone_number = request.POST.get('phoneNumber')
+        text = request.POST.get('text')
         print(session_id)
 
 
@@ -38,9 +38,6 @@ def africastalking(request):
             menu_text += "4. Civil rights Law \n"
             menu_text += "5. Labor Law  \n"
 
-
-        elif text =="2":
-            menu_text = "CON Please enter an amount"
 
         elif text =="1*1":
 
@@ -76,10 +73,6 @@ def africastalking(request):
 
             time.sleep(2)
 
-        elif text =="2*"+userResponse:
-            client.publish("amaina/amount",userResponse)
-            client.subscribe("amaina/amount")
-            time.sleep(2)
-            menu_text = "END Thank-you"
-
-    return HttpResponse(response)
+    else:
+        request.GET
+    return HttpResponse(menu_text)
