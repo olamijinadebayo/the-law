@@ -22,8 +22,8 @@ def lawyercases(request):
 
 
 def lawyerarticles(request):
-    cases = Post.objects.all()
-    return render(request, 'law/lawyerarticle.html', {"cases": cases})
+    articles = Articles.objects.all()
+    return render(request, 'law/lawyerarticle.html', {"articles":articles})
 
 
 def newarticle(request):
@@ -44,7 +44,8 @@ def newarticle(request):
 @login_required(login_url='/accounts/login/')
 def profile(request, profile_id):
     current_profile = Lawyer.objects.get(id=profile_id)
-    return render(request, 'law/lawyerprofile.html', {"current_profile": current_profile})
+    articles = Articles.objects.filter(lawyer=current_profile)
+    return render(request, 'law/lawyerprofile.html', {"current_profile": current_profile,"articles":articles})
 
 
 @transaction.atomic

@@ -1,5 +1,4 @@
-{% extends 'law/base.html' %} {% load staticfiles%} {% block content %} {% block styles %} {{block.super}}
-{% endblock %}
+{% extends 'law/base.html' %} {% load staticfiles%} {% block content %} {% block styles %} {{block.super}} {% endblock %}
 <h1 class="text-center">Cases</h1>
 
 <div class="container">
@@ -8,14 +7,17 @@
       <h2>Criminal Case</h2>
       <div class="row">
         {% for case in cases %}
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-md-4">
           <div class="card">
-            <img class="card-img-top" src="images/donut.png" alt="the image alt text here">
+            <div class="card-header">
+              <p>{{case.case_category}}</p>
+            </div>
             <div class="card-body text-center">
               <h5 class="card-title">{{case.case_number}}</h5>
               <p class="card-text text-left">{{ case.case_description}}</p>
+            </div>
+            <div class="card-footer">
               <p>{{ case.post_date}}</p>
-              <p>{{case.case_category}}</p>
               <a href="#" class="btn btn-primary">More info</a>
             </div>
           </div>
@@ -31,7 +33,7 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="card">
-           
+
             <div class="card-body text-center">
               <h3 class="card-title">Case Title 1</h3>
               <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
@@ -48,7 +50,7 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="card">
-            
+
             <div class="card-body text-center">
               <h3 class="card-title">Case Title 2</h3>
               <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
@@ -65,7 +67,7 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="card">
-           
+
             <div class="card-body text-center">
               <h3 class="card-title">Case Title 3</h3>
               <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
