@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+
+{% block content %}
+
+<div class="container" style="padding-top: 100px;">
+    <h4>Fill the details below.</h4>
+        <form action="/lawyer_form" enctype="multipart/form-data" method="post">{% csrf_token %}
+    <div class="form-group row">
+        <label for="first_name" class="col-xs-10 col-form-label mr-2">First Name</label>
+        <div class="col-xs-9">
+                {{ form.first_name }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="last_name" class="col-xs-3 col-form-label mr-2">Last Name</label>
+        <div class="col-xs-9">
+                {{ form.last_name }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="phone" class="col-xs-3 col-form-label mr-2">Phone</label>
+        <div class="col-xs-9">
+                {{ form.phone }}
+        </div>
+    </div>
+    </div>
+    <div class="form-group row">
+        <p>Place the marker where the incidence is</p>
+        <label for="last_name" class="col-xs-3 col-form-label mr-2">coords</label>
+        <div class="col-xs-9">
+            <div id="map" style="height:250px; width:100%; padding-top:100px;"></div>
+            <input id="coordinates" name="coordinates" value="" type="hidden" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-xs-3 col-xs-9">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    
+    </form>
+    </div>
+
+{% endblock %}
