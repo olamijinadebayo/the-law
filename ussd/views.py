@@ -11,7 +11,7 @@ url='https://de-law.herokuapp.com/'
 serviceCode='*384*23519#'
 
 @csrf_exempt
-def index(request):
+def africastalking(request):
     # africastalking.initializing(username,api_key)
     # ussd = africastalking.USSD
     response = ""
