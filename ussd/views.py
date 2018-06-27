@@ -7,24 +7,22 @@ import africastalking
 api_key='a98885a5b35185f219cd35263a9a3a7db9196f24a9df7e12a740a9eec53741d4'
 username='sandbox'
 phoneNumber='+254724629599'
-url='https://de-law.herokuapp.com/USSD'
+url='https://de-law.herokuapp.com/'
 serviceCode='*384*23519#'
 
-africastalking.initializing(username,api_key)
+# africastalking.initializing(username,api_key)
 ussd = africastalking.USSD
 @csrf_exempt
 def africastalking(request):
     # africastalking.initializing(username,api_key)
     # ussd = africastalking.USSD
+    response = ""
     if request.method == 'POST':
         session_id = request.POST.get('sessionId', None)
         service_code = request.POST.get('serviceCode', None)
         phone_number = request.POST.get('phoneNumber', None)
         text = request.POST.get('text', None)
-        # url = self.getUssdPushUrl('https://account.africastalking.com/apps/sandbox/ussd/channel/create ')
-        response = ""
         print(session_id)
-
 
 
         if text == "":
@@ -74,7 +72,7 @@ def africastalking(request):
             menu_text += "1. Wesley Mutwiri\n"
             menu_text += "2. Peter Muturi\n"
             menu_text += "3. Risper Kemmy\n"
-            # menu_text += "4. Olamijin\n"
+            menu_text += "4. Olamijin\n"
 
             time.sleep(2)
 
@@ -84,4 +82,4 @@ def africastalking(request):
             time.sleep(2)
             menu_text = "END Thank-you"
 
-        return HttpResponse(response)
+    return HttpResponse(response)
