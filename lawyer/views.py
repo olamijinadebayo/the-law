@@ -27,8 +27,8 @@ def lawyerarticles(request):
 
 
 def newarticle(request):
-    current_user = request.user.id
-    profile = Lawyer.objects.get(id=request.user.id)
+    current_user = request.user.lawyer_profile.id
+    profile = Lawyer.objects.get(id=current_user)
     if request.method == 'POST':
         form = NewArticleForm(request.POST, request.FILES)
         if form.is_valid():
