@@ -1,4 +1,4 @@
-from django.db import models
+from django.contrib.gis.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db.models.signals import post_save
@@ -8,6 +8,7 @@ import datetime as dt
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 from citizen.models import Profile,Citizen
+from phonenumber_field.modelfields import PhoneNumberField
 import citizen
 # Create your model
 
@@ -31,8 +32,10 @@ class Lawyer(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     avatar = models.ImageField(upload_to='avatar', blank=True)
     bio = models.TextField(max_length=500, blank=True)
-    location = models.CharField(max_length=30, blank=True)
-    category = models.CharField(max_length=2,choices = LAW_CATEGORIES,default=GENERAL,)
+    location = models.PointField(srid=4326, null=True)
+    phone = PhoneNumberField(null=True, blank=True)
+    objects =  models.GeoManager()
+    category = models.CharField(max_length=20,choices = LAW_CATEGORIES,default=GENERAL,)
 
     def __str__(self):
         return self.user.username
@@ -51,6 +54,14 @@ class Lawyer(models.Model):
             instance.lawyer_profile.save()
         else:
             instance.citizen_info.save()
+
+class AllLawyer(models.Model):
+    name = models.CharField(max_length=250)
+    icon = models.CharField(max_length=250)
+    description = models.CharField(max_length=250)
+
+    geom = models.PointField(srid=4326)
+    objects = models.GeoManager()
 
 
 class Articles(models.Model):
