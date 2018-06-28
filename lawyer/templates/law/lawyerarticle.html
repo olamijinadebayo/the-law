@@ -1,0 +1,38 @@
+{% extends 'law/base.html' %}
+{% load staticfiles%}
+ {% block content %}
+ {% block styles %}
+  {{block.super}}
+  <link rel="stylesheet" href="{% static 'css/lawyer/article.css'%}">
+{% endblock %}
+<h1 class="text-center">Articles</h1>
+
+<div class="container">
+  <section class="criminal">
+    <div class="container">
+      <h2>Articles</h2>
+      <div class="row">
+        {% for article in articles %}
+        <div class="col-sm-12 col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <p>{{article.name}}</p>
+            </div>
+            <div class="card-body text-center">
+              <img class="card-img-top" src="{{article.image.url}}">
+              <p class="card-text text-left">{{article.post}}</p>
+            </div>
+            <div class="card-footer">
+              <p>posted at:{{article.time}}</p>
+              <a href="#" class="btn btn-primary">Read more</a>
+            </div>
+          </div>
+        </div>
+        {% endfor%}
+
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

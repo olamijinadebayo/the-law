@@ -1,21 +1,16 @@
-body{
-    /* background-image: url(../../images/back.jpeg); */
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+
 .profile {
   width: 150px !important;
   height:150px !important;
   margin: auto;
 }
-.card {
+.profile-body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 60vw;
   margin: auto;
   text-align: center;
   font-family: arial;
 }
-
 .title {
   color: grey;
   font-size: 18px;
@@ -29,8 +24,10 @@ button {
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 100%;
   font-size: 18px;
+}
+.contact{
+  width: 100%;
 }
 a {
   text-decoration: none;
@@ -40,4 +37,7 @@ a {
 
 button:hover, a:hover {
   opacity: 0.7;
+}
+.article_body{
+  padding: 0;
 }

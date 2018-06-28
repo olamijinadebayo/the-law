@@ -23,17 +23,24 @@ def lawyerdashboard(request):
 
 def lawyercases(request):
     cases = Post.objects.all()
-    return render(request, 'law/viewcase.html',{"cases":cases})
+    drunk = Post.objects.filter(case_category ='Dd')
+    land = Post.objects.filter(case_category ='Lf')
+    robbery = Post.objects.filter(case_category ='Rb')
+    murder = Post.objects.filter(case_category ='Md')
+    fraud = Post.objects.filter(case_category ='Fr')
+    sex = Post.objects.filter(case_category ='Sa')
+
+    return render(request, 'law/viewcase.html',{"cases":cases,"drunk":drunk,"land":land,"robbery":robbery,"murder":murder,"fraud":fraud,"sex":sex})
 
 
 def lawyerarticles(request):
-    cases = Post.objects.all()
-    return render(request, 'law/lawyerarticle.html', {"cases": cases})
+    articles = Articles.objects.all()
+    return render(request, 'law/lawyerarticle.html', {"articles":articles})
 
 
 def newarticle(request):
-    current_user = request.user.id
-    profile = Lawyer.objects.get(id=request.user.id)
+    current_user = request.user.lawyer_profile.id
+    profile = Lawyer.objects.get(id=current_user)
     if request.method == 'POST':
         form = NewArticleForm(request.POST, request.FILES)
         if form.is_valid():
@@ -49,7 +56,8 @@ def newarticle(request):
 @login_required(login_url='/accounts/login/')
 def profile(request, profile_id):
     current_profile = Lawyer.objects.get(id=profile_id)
-    return render(request, 'law/lawyerprofile.html', {"current_profile": current_profile})
+    articles = Articles.objects.filter(lawyer=current_profile)
+    return render(request, 'law/lawyerprofile.html', {"current_profile": current_profile,"articles":articles})
 
 
 @transaction.atomic

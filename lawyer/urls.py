@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^portal', views.portal, name='portal'),
     url(r'^data$', views.reported, name='lawyers'),
     url(r'^google$', views.google, name='google'),
-
+    url(r'article', views.lawyerarticles, name='articles'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
