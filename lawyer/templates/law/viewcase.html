@@ -1,18 +1,15 @@
-{% extends 'law/base.html' %}
- {% load staticfiles%}
- {% block content %}
- {% block styles %}
-  {{block.super}}
-   {% endblock %}
+{% extends 'law/base.html' %} {% load staticfiles%} {% block content %} {% block styles %} {{block.super}} {% endblock %} {% block scripts %} {{block.super}}
+<script src="{% static 'js/cases.js'%}"></script>
+{% endblock %}
 <h1 class="text-center">Cases</h1>
 
 <div class="container">
   <section class="drunken">
     <div class="container">
       <h2>Drunken Disorder</h2>
-      <div class="row">
+      <div class="row ">
         {% for case in drunk%}
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-12 col-md-4 animated zoomIn">
           <div class="card">
             <div class="card-header">
               <p>{{case.get_case_category_display}}</p>
@@ -36,7 +33,7 @@
       <h2>Land Fraud</h2>
       <div class="row">
         {% for case in land%}
-        <div class="col-sm-12 col-md-4">
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
           <div class="card">
             <div class="card-header">
               <p>{{case.get_case_category_display}}</p>
@@ -60,7 +57,7 @@
       <h2>Robbery</h2>
       <div class="row">
         {% for case in robbery%}
-        <div class="col-sm-12 col-md-4">
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
           <div class="card">
             <div class="card-header">
               <p>{{case.get_case_category_display}}</p>
@@ -84,7 +81,7 @@
       <h2>Murder</h2>
       <div class="row">
         {% for case in murder%}
-        <div class="col-sm-12 col-md-4">
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
           <div class="card">
             <div class="card-header">
               <p>{{case.get_case_category_display}}</p>
@@ -108,7 +105,7 @@
       <h2>Fraud</h2>
       <div class="row">
         {% for case in fraud%}
-        <div class="col-sm-12 col-md-4">
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
           <div class="card">
             <div class="card-header">
               <p>{{case.get_case_category_display}}</p>
@@ -132,7 +129,7 @@
       <h2>Sexual Assault</h2>
       <div class="row">
         {% for case in sex%}
-        <div class="col-sm-12 col-md-4">
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
           <div class="card">
             <div class="card-header">
               <p>{{case.get_case_category_display}}</p>
