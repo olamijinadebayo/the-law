@@ -1,19 +1,21 @@
-{% extends 'law/base.html' %} {% load staticfiles%} {% block content %} {% block styles %} {{block.super}} {% endblock %}
+{% extends 'law/base.html' %} {% load staticfiles%} {% block content %} {% block styles %} {{block.super}} {% endblock %} {% block scripts %} {{block.super}}
+<script src="{% static 'js/cases.js'%}"></script>
+{% endblock %}
 <h1 class="text-center">Cases</h1>
 
 <div class="container">
-  <section class="criminal">
+  <section class="drunken">
     <div class="container">
-      <h2>Criminal Case</h2>
-      <div class="row">
-        {% for case in cases %}
-        <div class="col-sm-12 col-md-4">
+      <h2>Drunken Disorder</h2>
+      <div class="row ">
+        {% for case in drunk%}
+        <div class="col-sm-12 col-md-4 animated zoomIn">
           <div class="card">
             <div class="card-header">
-              <p>{{case.case_category}}</p>
+              <p>{{case.get_case_category_display}}</p>
             </div>
             <div class="card-body text-center">
-              <h5 class="card-title">{{case.case_number}}</h5>
+              <h5 class="card-title"></h5>
               <p class="card-text text-left">{{ case.case_description}}</p>
             </div>
             <div class="card-footer">
@@ -23,58 +25,126 @@
           </div>
         </div>
         {% endfor%}
-
       </div>
     </div>
   </section>
-  <section class="corporate">
+  <section class="land_fraud">
     <div class="container">
-      <h2>Corporate Case</h2>
+      <h2>Land Fraud</h2>
       <div class="row">
-        <div class="col-sm-4">
+        {% for case in land%}
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
           <div class="card">
-
+            <div class="card-header">
+              <p>{{case.get_case_category_display}}</p>
+            </div>
             <div class="card-body text-center">
-              <h3 class="card-title">Case Title 1</h3>
-              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <h5 class="card-title"></h5>
+              <p class="card-text text-left">{{ case.case_description}}</p>
+            </div>
+            <div class="card-footer">
+              <p>{{ case.post_date}}</p>
               <a href="#" class="btn btn-primary">More info</a>
             </div>
           </div>
         </div>
+        {% endfor%}
       </div>
     </div>
   </section>
-  <section class="tax">
+  <section class="robbery">
     <div class="container">
-      <h2>Tax Case</h2>
+      <h2>Robbery</h2>
       <div class="row">
-        <div class="col-sm-4">
+        {% for case in robbery%}
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
           <div class="card">
-
+            <div class="card-header">
+              <p>{{case.get_case_category_display}}</p>
+            </div>
             <div class="card-body text-center">
-              <h3 class="card-title">Case Title 2</h3>
-              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <h5 class="card-title"></h5>
+              <p class="card-text text-left">{{ case.case_description}}</p>
+            </div>
+            <div class="card-footer">
+              <p>{{ case.post_date}}</p>
               <a href="#" class="btn btn-primary">More info</a>
             </div>
           </div>
         </div>
+        {% endfor%}
       </div>
     </div>
   </section>
-  <section class="harass">
+  <section class="murder">
     <div class="container">
-      <h2>Harrassment Case</h2>
+      <h2>Murder</h2>
       <div class="row">
-        <div class="col-sm-4">
+        {% for case in murder%}
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
           <div class="card">
-
+            <div class="card-header">
+              <p>{{case.get_case_category_display}}</p>
+            </div>
             <div class="card-body text-center">
-              <h3 class="card-title">Case Title 3</h3>
-              <p class="card-text text-left">Place some text for the service 1 here. Place some text for the service 1 here. Place some text for the service 1 here.</p>
+              <h5 class="card-title"></h5>
+              <p class="card-text text-left">{{ case.case_description}}</p>
+            </div>
+            <div class="card-footer">
+              <p>{{ case.post_date}}</p>
               <a href="#" class="btn btn-primary">More info</a>
             </div>
           </div>
         </div>
+        {% endfor%}
+      </div>
+    </div>
+  </section>
+  <section class="fraud">
+    <div class="container">
+      <h2>Fraud</h2>
+      <div class="row">
+        {% for case in fraud%}
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <p>{{case.get_case_category_display}}</p>
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title"></h5>
+              <p class="card-text text-left">{{ case.case_description}}</p>
+            </div>
+            <div class="card-footer">
+              <p>{{ case.post_date}}</p>
+              <a href="#" class="btn btn-primary">More info</a>
+            </div>
+          </div>
+        </div>
+        {% endfor%}
+      </div>
+    </div>
+  </section>
+  <section class="sex">
+    <div class="container">
+      <h2>Sexual Assault</h2>
+      <div class="row">
+        {% for case in sex%}
+        <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col-sm-12 col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <p>{{case.get_case_category_display}}</p>
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title"></h5>
+              <p class="card-text text-left">{{ case.case_description}}</p>
+            </div>
+            <div class="card-footer">
+              <p>{{ case.post_date}}</p>
+              <a href="#" class="btn btn-primary">More info</a>
+            </div>
+          </div>
+        </div>
+        {% endfor%}
       </div>
     </div>
   </section>

@@ -18,7 +18,14 @@ def lawyerdashboard(request):
 
 def lawyercases(request):
     cases = Post.objects.all()
-    return render(request, 'law/viewcase.html',{"cases":cases})
+    drunk = Post.objects.filter(case_category ='Dd')
+    land = Post.objects.filter(case_category ='Lf')
+    robbery = Post.objects.filter(case_category ='Rb')
+    murder = Post.objects.filter(case_category ='Md')
+    fraud = Post.objects.filter(case_category ='Fr')
+    sex = Post.objects.filter(case_category ='Sa')
+
+    return render(request, 'law/viewcase.html',{"cases":cases,"drunk":drunk,"land":land,"robbery":robbery,"murder":murder,"fraud":fraud,"sex":sex})
 
 
 def lawyerarticles(request):
@@ -27,8 +34,8 @@ def lawyerarticles(request):
 
 
 def newarticle(request):
-    current_user = request.user.id
-    profile = Lawyer.objects.get(id=request.user.id)
+    current_user = request.user.lawyer_profile.id
+    profile = Lawyer.objects.get(id=current_user)
     if request.method == 'POST':
         form = NewArticleForm(request.POST, request.FILES)
         if form.is_valid():
